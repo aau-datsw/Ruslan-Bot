@@ -4,5 +4,7 @@
   "description": "A bot for ruslan 2019",
   "main": "bot.js",
   "author": "Team ruslan",
-  "dependencies": {}
+  "dependencies": {
+    "discord.js": "^11.5.1"
+  }
 }
