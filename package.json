@@ -1,8 +1,8 @@
 {
-“name”: “Ruslan-bot”,
-“version”: “1.0.0”,
-“description”: “A bot for ruslan 2019”,
-“main”: “bot.js”,
-“author”: “Team ruslan”,
-“dependencies”: {}
+  "name": "Ruslan-bot",
+  "version": "1.0.0",
+  "description": "A bot for ruslan 2019",
+  "main": "bot.js",
+  "author": "Team ruslan",
+  "dependencies": {}
 }
