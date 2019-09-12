@@ -11,11 +11,12 @@ client.login(config.token);
 client.on('message', message => {
 	if(!message.content.startsWith(config.prefix) || message.author.bot) return;
 	
-	const args = message.content.slice(prefix.length).split(/ +/);
+	const args = message.content.slice(1).split(/ +/);
 	const command = args.shift().toLowerCase();
 	
 	if (command === 'ping') {
 		message.channel.send('Pong.');
+		console.log('Sent a pong');
 	} else if (command === 'bepp') {
 		message.channel.send('Boop.');
 	}
