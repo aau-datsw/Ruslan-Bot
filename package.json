@@ -1,5 +1,5 @@
 {
-  "name": "Ruslan-bot",
+  "name": "ruslan-bot",
   "version": "1.0.0",
   "description": "A bot for ruslan 2019",
   "main": "bot.js",
@@ -9,7 +9,8 @@
   },
   "author": "Team ruslan",
   "dependencies": {
-    "discord.js": "^11.5.1"
+    "discord.js": "^11.5.1",
+    "dotenv": "^8.1.0"
   },
   "devDependencies": {
     "nodemon": "^1.19.2"
