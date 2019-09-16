@@ -1,6 +1,6 @@
-const Discord = require('discord.js');
 const config = require('./config.json');
-const client = new Discord.Client();
+const { Client, RichEmbed } = require('discord.js');
+const client = new Client();
 
 client.once('ready', () => {
 	console.log('Ready!');
@@ -31,5 +31,16 @@ client.on('message', message => {
 	} else if (command === 'beep') {
 		message.channel.send('Boop.');
 		console.log('send a boop!');
+	} else if (command === 'djaligator') {
+	  const embed = new RichEmbed()
+		// Set the title of the field
+		.setTitle('I am DJ Aligator')
+		// Set the color of the embed
+		.setColor(0xFF0000)
+		// Set the main content of the embed
+		.setDescription('Hello, there!');
+	  // Send the embed to the same channel as the message
+	  message.channel.send(embed);
+	  console.log("a dj");
 	}
 });
