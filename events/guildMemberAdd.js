@@ -1,3 +1,5 @@
+const welcome = require('../commands/welcome');
+
 module.exports = (client, member) => {
     /*     const welcomeRole = member.guild.roles.find("name", "New user");
         const channel = member.guild.channels.find(ch => ch.name === 'welcome');
