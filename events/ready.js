@@ -1,3 +1,3 @@
-module.exports = client => {
-    console.log(client.user.tag + ' is ready!');
+module.exports = (client) => {
+    console.log('The RUSLAN bot is ready!');
 }
