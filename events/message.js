@@ -20,7 +20,6 @@ module.exports = (client, message) => {
         testChannel.send("CS MASTER!");
         console.log("a dj");
     } else if (command === 'rusling') {
-        console.log("hallo");
         if (message.member.highestRole.comparePositionTo(ruslingRole) > 0) {
             purgeWelcomeChannel(client);
             return;
