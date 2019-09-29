@@ -30,6 +30,5 @@ module.exports = (client) => {
         .setImage('https://i.imgur.com/p5A0aWR.png')
         .setTimestamp()
         .setFooter('Ruslan-bot\'en', 'https://i.imgur.com/piKmQwn.jpg');
-    console.log(exampleEmbed);
     channel.send(exampleEmbed);
 }
