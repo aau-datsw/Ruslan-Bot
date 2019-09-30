@@ -1,16 +1,22 @@
 require('dotenv').config();
 const rusling = require('../commands/rusling.js');
 const tutor = require('../commands/tutor.js');
+const makeTutor = require('../commands/makeTutor.js');
+
 
 module.exports = (client, message) => {
     const config = require('./../config.json');
 
     if (!message.content.startsWith(config.prefix) || message.author.bot) return;
-    let channelID = message.channel.id;
-    if (channelID == process.env.WELCOME_CHANNEL_ID)
+
+    if (client.channels.find(channel => channel.name === 'welcome'))
     {
-        welcomeCommands(client, message);
-    } else if (channelID == process.env.SUPPORT_CHANNEL_ID)
+        if (message.member.nickname) {
+            welcomeCommands(client, message);
+        } else {
+            console.log("'\t" + message.member.displayName + "' tried to join the server without a nickname");
+        }
+    } else if (client.channels.find(channel => channel.name === 'tutor-bump'))
     {
         supportCommands(client, message);
     }
@@ -22,7 +28,7 @@ function welcomeCommands(client, message) {
     const command = args.shift().toLowerCase();    
 
     switch (command) {
-        case 'tutor2015':
+        case 'tutor2005':
             tutor(message);
             break;
         case 'rusling':
@@ -37,12 +43,12 @@ function welcomeCommands(client, message) {
 
 function supportCommands (client, message){
     const args = message.content.slice(1).split(/ +/);
-    const command = args.shift().toLowerCase();
+    const command = args.shift().toLowerCase();    
 
     switch (command) {
         case 'makeTutor':
+            makeTutor(message);
             break;
-    
         default:
             break;
     }
@@ -56,8 +62,9 @@ function purgeChannelforAuthor(message) {
             const allMsgByAuthor = allMsg.filter(fetchedMsg => fetchedMsg.author === message.author);
             purgeChannel.bulkDelete(allMsgByAuthor, true);
         })
-        .catch(error => console.log(error));
+            .catch(error => console.log(error));
     } catch (err) {
         console.error(err);
     }
 }
+
