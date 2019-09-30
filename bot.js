@@ -1,23 +1,14 @@
-const Discord = require('discord.js');
-const config = require('./config.json');
+require('dotenv').config();
+const Discord = require("discord.js");
+const fs = require('fs');
 const client = new Discord.Client();
 
-client.once('ready', () => {
-	console.log('Ready!');
+fs.readdir("./events/", (err, files) => {
+	files.forEach(file => {
+		const eventHandler = require(`./events/${file}`);
+		const eventName = file.split(".")[0]; // File name = eventName
+		client.on(eventName, (...args) => eventHandler(client, ...args));
+	});
 });
 
-client.login(config.token);
-
-client.on('message', message => {
-	if(!message.content.startsWith(config.prefix) || message.author.bot) return;
-	
-	const args = message.content.slice(1).split(/ +/);
-	const command = args.shift().toLowerCase();
-	
-	if (command === 'ping') {
-		message.channel.send('Pong.');
-		console.log('Sent a pong');
-	} else if (command === 'bepp') {
-		message.channel.send('Boop.');
-	}
-});
+client.login(process.env.BOT_TOKEN);
