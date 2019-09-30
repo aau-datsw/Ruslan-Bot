@@ -1,4 +1,7 @@
 require('dotenv').config();
+const rusling = require('../commands/rusling.js');
+const tutor = require('../commands/tutor.js');
+
 module.exports = (client, message) => {
     const config = require('./../config.json');
 
@@ -16,23 +19,14 @@ module.exports = (client, message) => {
 
 function welcomeCommands(client, message) {
     const args = message.content.slice(1).split(/ +/);
-    const command = args.shift().toLowerCase();
-
-    const welcomeChannel = client.channels.find(ch => ch.id === process.env.WELCOME_CHANNEL_ID);
-    const roleChannel = client.channels.find(ch => ch.id === process.env.SUPPORT_CHANNEL_ID);
-    const ruslingRole = message.member.guild.roles.find("name", "Rusling");
+    const command = args.shift().toLowerCase();    
 
     switch (command) {
-        case 'tutor':
-            roleChannel.send(message.author + " wants to be tutor!");
-            // No break, so tutor also becomes rusling
+        case 'tutor2015':
+            tutor(message);
+            break;
         case 'rusling':
-            if (message.member.highestRole.comparePositionTo(ruslingRole) < 0) {
-               // Give rusling role to a member
-                message.member.addRole(ruslingRole)
-                    .then(console.log(`${message.member}` + " is rusling"))
-                    .catch(error => console.log(error));
-            }
+            rusling(message);
             break;
         default:
             break;
