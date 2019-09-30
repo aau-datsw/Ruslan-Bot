@@ -3,11 +3,11 @@ module.exports = (client, message) => {
     const config = require('./../config.json');
 
     if (!message.content.startsWith(config.prefix) || message.author.bot) return;
-    
-    if (message.channel.id == process.env.WELCOME_CHANNEL_ID)
+    let channelID = message.channel.id;
+    if (channelID == process.env.WELCOME_CHANNEL_ID)
     {
         welcomeCommands(client, message);
-    } else if ((message.channel.id == process.env.SUPPORT_CHANNEL_ID))
+    } else if (channelID == process.env.SUPPORT_CHANNEL_ID)
     {
         supportCommands(client, message);
     }
@@ -45,11 +45,8 @@ function supportCommands (client, message){
     const args = message.content.slice(1).split(/ +/);
     const command = args.shift().toLowerCase();
 
-    console.log(command);
     switch (command) {
         case 'makeTutor':
-
-            
             break;
     
         default:

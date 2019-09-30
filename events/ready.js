@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-
+require('dotenv').config();
 
 module.exports = (client) => {
     console.log('The RUSLAN bot is ready!');
@@ -8,7 +8,7 @@ module.exports = (client) => {
     try {
         channel.fetchMessages()
             .then(messages => {
-                const botMsg = messages.filter(fetchedMsg => fetchedMsg.author.id === '621641289183789058');
+                const botMsg = messages.filter(fetchedMsg => fetchedMsg.author.id === process.env.BOT_ID);
                 channel.bulkDelete(botMsg);
             })
             .catch(console.error);
