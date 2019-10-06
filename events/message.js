@@ -85,13 +85,14 @@ function ruslingCommands(message, command) {
 }
 
 function welcomeCommands(message, command) {
-
-    switch (command) {
-        case 'rusling':
-            rusling(message);
-            break;
-        default:
-            break;
+    if (message.member.nickname) {
+        switch (command) {
+            case 'rusling':
+                rusling(message);
+                break;
+            default:
+                break;
+        }
     }
     purgeChannelforAuthor(message);
 }
