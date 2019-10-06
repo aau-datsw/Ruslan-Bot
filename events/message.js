@@ -1,69 +1,110 @@
 require('dotenv').config();
+const rusling = require('../commands/rusling.js');
+const tutor = require('../commands/tutor.js');
+const makeTutor = require('../commands/makeTutor.js');
+const purgeBot = require('../commands/purgeBot.js');
+const purgeMe = require('../commands/purgeMe.js');
+
 module.exports = (client, message) => {
     const config = require('./../config.json');
 
     if (!message.content.startsWith(config.prefix) || message.author.bot) return;
-    let channelID = message.channel.id;
-    if (channelID == process.env.WELCOME_CHANNEL_ID)
+
+    if (message.channel.type === 'text')
     {
-        welcomeCommands(client, message);
-    } else if (channelID == process.env.SUPPORT_CHANNEL_ID)
-    {
-        supportCommands(client, message);
+        command(message);
     }
-
+    else if (message.channel.type === 'dm')
+    {
+        welcomeTutor(message);
+    }
+    return;
 }
-
-function welcomeCommands(client, message) {
+function command(message){
     const args = message.content.slice(1).split(/ +/);
     const command = args.shift().toLowerCase();
 
-    const welcomeChannel = client.channels.find(ch => ch.id === process.env.WELCOME_CHANNEL_ID);
-    const roleChannel = client.channels.find(ch => ch.id === process.env.SUPPORT_CHANNEL_ID);
-    const ruslingRole = message.member.guild.roles.find("name", "Rusling");
+    const adminRole = message.member.guild.roles.find(r => r.name === "Admin");
+    const tutorRole = message.member.guild.roles.find(r => r.name === "Tutor");
+    const ruslingRole = message.member.guild.roles.find(r => r.name === "Rusling");
+
+    if (message.member.highestRole.comparePositionTo(adminRole) >= 0) {
+        adminCommands(message, command);
+    }
+    if (message.member.highestRole.comparePositionTo(tutorRole) >= 0) {
+        tutorCommands(message, command);
+    }
+    if (message.member.highestRole.comparePositionTo(ruslingRole) >= 0) {
+        ruslingCommands(message, command);
+    }
+    else {
+        welcomeCommands(message, command);
+    }
+}
+
+function adminCommands(message, command) {
 
     switch (command) {
-        case 'tutor':
-            roleChannel.send(message.author + " wants to be tutor!");
-            // No break, so tutor also becomes rusling
+        case 'purgebot':
+            purgeBot(message.channel);
+            break;
+        case 'purgeme':
+            purgeMe(message);
+            break;
+        default:
+            break;
+    }
+}
+ 
+
+function tutorCommands(message, command){
+    switch (command) {
+        case 'maketutor':
+            makeTutor(message);
+            break;
+        default:
+            break;
+    }
+}
+
+
+function ruslingCommands(message, command) {
+
+    switch (command) {
+        case'help':
+            break;
+        case 'cs':
+            //cs(message);
+            break;
+        case 'lol':
+            // lol(message);
+            break;
+        default:
+            break;
+    }
+}
+
+function welcomeCommands(message, command) {
+
+    switch (command) {
         case 'rusling':
-            if (message.member.highestRole.comparePositionTo(ruslingRole) < 0) {
-               // Give rusling role to a member
-                message.member.addRole(ruslingRole)
-                    .then(console.log(`${message.member}` + " is rusling"))
-                    .catch(error => console.log(error));
-            }
+            rusling(message);
             break;
         default:
             break;
     }
     purgeChannelforAuthor(message);
-    return;
 }
 
-function supportCommands (client, message){
+function welcomeTutor(message){
     const args = message.content.slice(1).split(/ +/);
     const command = args.shift().toLowerCase();
-
-    switch (command) {
-        case 'makeTutor':
-            break;
-    
-        default:
-            break;
+    console.log(message);
+    console.log("\n" + command);
+    if (message.channel.recipient.id === message.author.id && command === 'tutor2005')
+    {
+        tutor(message);
     }
 
 }
 
-function purgeChannelforAuthor(message) {
-    try {
-        const purgeChannel = message.channel;
-        purgeChannel.fetchMessages({ limit: 100 }).then(allMsg => {
-            const allMsgByAuthor = allMsg.filter(fetchedMsg => fetchedMsg.author === message.author);
-            purgeChannel.bulkDelete(allMsgByAuthor, true);
-        })
-        .catch(error => console.log(error));
-    } catch (err) {
-        console.error(err);
-    }
-}
