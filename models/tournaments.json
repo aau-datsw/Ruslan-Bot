@@ -1,0 +1,16 @@
+[
+    {
+        "commandName": "cs",
+        "title": "this is a title",
+        "url": "urlbaby.com",
+        "description": "This is a description",
+        "color": "#ffc800"
+    },
+    {
+        "commandName": "rl",
+        "title": "this is a title2",
+        "url": "urlbaby.com2",
+        "description": "This is a description2",
+        "color": "#ffc800"
+    }
+]
