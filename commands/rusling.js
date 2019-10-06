@@ -6,9 +6,8 @@ module.exports = message => {
             message.member.addRole(ruslingRole)
                 .then(console.log(`${message.member.displayName}` + " is rusling"))
                 .catch(error => console.log(error));
-
         }
     } else {
         console.log("'\t" + message.member.displayName + "' tried to join the server without a nickname");
-    }    
+    }
 }
