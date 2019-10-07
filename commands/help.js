@@ -8,7 +8,7 @@ module.exports = message => {
     const helpEmbed = new Discord.RichEmbed()
         .setColor('#ffc800')
         .setTitle("**Commands**")
-        .setDescription(`These are the different commands to use for ${message.member.highestRole.name}:`);
+        .setDescription(`These are the different commands to use for **${message.member.highestRole.name}**:`);
 
     if (message.member.highestRole.comparePositionTo(adminRole) >= 0) {
         newCommand("purgebot", "purge channel for messages by bot");
