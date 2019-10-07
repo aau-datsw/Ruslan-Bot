@@ -9,10 +9,7 @@ const update = require('../commands/update.js');
 const quickpurge = require('../commands/quickpurge.js');
 const help = require('../commands/help.js');
 const nickname = require('../commands/nickname.js');
-
-
-
-
+const support = require('../commands/support.js');
 
 module.exports = (client, message) => {
     const config = require('./../config.json');
@@ -76,7 +73,7 @@ function plannerCommands(message, command, args) {
             update(message, command, args);
             break;
         case 'maketutor':
-            makeTutor(message);
+            makeTutor(message, args);
             break;
         default:
             break;
@@ -90,6 +87,8 @@ function ruslingCommands(message, command) {
         case 'commands':
             help(message);
             break;
+        case 'support':
+            support(message.member);
         case 'cs':
             //cs(message);
             break;
@@ -125,7 +124,7 @@ function welcomeTutor(message) {
     const command = args.shift().toLowerCase();
     console.log(message);
     console.log("\n" + command);
-    if (message.channel.recipient.id === message.author.id && command === 'tutor2005' && message.member.nickname) {
+    if (message.channel.recipient.id === message.author.id && command === 'tutor2005') {
         tutor(message);
     }
 }

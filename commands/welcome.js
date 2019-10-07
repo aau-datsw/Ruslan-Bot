@@ -9,9 +9,9 @@ module.exports = (client) => {
                     const botMsg = messages.filter(fetchedMsg => fetchedMsg.author.bot); // boolean for bot
                     channel.bulkDelete(botMsg);
                 })
-                .catch(console.error);
+                .catch(console.log);
         } catch (err) {
-            console.error(err);
+            console.log(err);
         }
 
 
@@ -25,7 +25,8 @@ module.exports = (client) => {
         .addField('Rules', 'Pls follow the rules -> <#628251600078766111>')
         .addField('Rusling', '1. Change your nickname to your real name, before joining the server "!nickname YourName"' +
             '\n2. Check the ruleset, by clicking the blue link above' +
-            '\n3. Type "!rusling" to accept the rules, and get acess to the server')
+            '\n3. Type "!rusling" to accept the rules, and get acess to the server' + 
+            '\n   If your confused, type "!help for a list of commands"')
         .addField('Tutor', '\tCheck with your other tutors, to get information on how to join', true)
         .setTimestamp()
         .setFooter('Ruslan-bot\'en', 'https://i.imgur.com/piKmQwn.jpg');

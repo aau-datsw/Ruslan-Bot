@@ -6,7 +6,7 @@ module.exports = message => {
             purgeChannel.bulkDelete(allMsgByAuthor, true);
         })
             .catch(error => console.log(error));
-    } catch (err) {
-        console.error(err);
+    } catch (error) {
+        console.log(error);
     }
 }
