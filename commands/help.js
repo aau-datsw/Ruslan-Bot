@@ -4,7 +4,7 @@ module.exports = message => {
     const adminRole = message.member.guild.roles.find(r => r.name === "Admin");
     const plannerRole = message.member.guild.roles.find(r => r.name === "Ruslan Planlægger");
     const ruslingRole = message.member.guild.roles.find(r => r.name === "Rusling");
-   
+
     const helpEmbed = new Discord.RichEmbed()
         .setColor('#ffc800')
         .setTitle("**Commands**")
@@ -27,9 +27,9 @@ module.exports = message => {
         newCommand("nickname", "!nickname YourNameHere");
     }
 
-    message.channel.send(helpEmbed);
+    message.reply(helpEmbed);
 
     function newCommand(commandString, commandDescription) {
-        helpEmbed.addField('!' + commandString, `*${commandDescription}*`, true); 
+        helpEmbed.addField('!' + commandString, `*${commandDescription}*`, true);
     }
 }
