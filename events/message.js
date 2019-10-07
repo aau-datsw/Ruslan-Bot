@@ -36,21 +36,23 @@ function command(message) {
     if (message.member.highestRole.comparePositionTo(adminRole) >= 0) {
         adminCommands(message, command);
     }
+
     if (message.member.highestRole.comparePositionTo(plannerRole) >= 0) {
         plannerCommands(message, command, args);
     }
+
     if (message.member.highestRole.comparePositionTo(ruslingRole) >= 0) {
         ruslingCommands(message, command);
-    }
-    else {
+    } else {
         welcomeCommands(message, command, args);
     }
+
+    message.delete();
 }
 
 function adminCommands(message, command) {
     switch (command) {
         case 'purgebot':
-            message.delete();
             purgeBot(message.channel);
             break;
         case 'purgeme':
@@ -81,14 +83,13 @@ function plannerCommands(message, command, args) {
 }
 
 function ruslingCommands(message, command) {
-    message.delete();
     switch (command) {
         case 'help':
         case 'commands':
             help(message);
             break;
         case 'support':
-            support(message.member);
+            support(message);
         case 'cs':
             //cs(message);
             break;
@@ -101,21 +102,19 @@ function ruslingCommands(message, command) {
 }
 
 function welcomeCommands(message, command, args) {
-    message.delete();
-    if (message.member.nickname) {
-        switch (command) {
-            case 'rusling':
+    switch (command) {
+        case 'rusling':
+            if (message.member.nickname) {
                 rusling(message);
-                break;
-            case 'nickname':
-                nickname(message, args);
-                break;
-            default:
-                break;
-        }
-    }
-    else {
-        message.reply(`${message.member.displayName} change your name(nickname), to your real name\nYou can use the command "!nickname YourNameHere"`);
+            } else {
+                message.reply(`${message.member.displayName} change your name(nickname), to your real name\nYou can use the command "!nickname YourNameHere"`);
+            }
+            break;
+        case 'nickname':
+            nickname(message, args);
+            break;
+        default:
+            break;
     }
 }
 

@@ -1,6 +1,4 @@
-
 const purgeAuthor = require('../commands/purgeChannelforAuthor.js');
-
 
 module.exports = message => {
     const ruslingRole = message.member.guild.roles.find(r => r.name === "Rusling");
@@ -19,5 +17,5 @@ module.exports = message => {
         console.log(error);
     }
 
-    
+
 }
