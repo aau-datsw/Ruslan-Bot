@@ -37,7 +37,7 @@ function command(message) {
     const ruslingRole = message.member.guild.roles.find(r => r.name === "Rusling");
 
     if (message.member.highestRole.comparePositionTo(adminRole) >= 0) {
-        adminCommands(message, command, args);
+        adminCommands(message, command);
     }
     if (message.member.highestRole.comparePositionTo(plannerRole) >= 0) {
         plannerCommands(message, command, args);
@@ -46,11 +46,11 @@ function command(message) {
         ruslingCommands(message, command);
     }
     else {
-        welcomeCommands(message, command);
+        welcomeCommands(message, command, args);
     }
 }
 
-function adminCommands(message, command, args) {
+function adminCommands(message, command) {
     switch (command) {
         case 'purgebot':
             message.delete();
@@ -61,9 +61,6 @@ function adminCommands(message, command, args) {
             break;
         case 'quickpurge':
             quickpurge(message);
-            break;
-        case 'nickname':
-            nickname(message, args);
             break;
         default:
             break;
@@ -104,12 +101,15 @@ function ruslingCommands(message, command) {
     }
 }
 
-function welcomeCommands(message, command) {
+function welcomeCommands(message, command, args) {
     message.delete();
     if (message.member.nickname) {
         switch (command) {
             case 'rusling':
                 rusling(message);
+                break;
+            case 'nickname':
+                nickname(message, args);
                 break;
             default:
                 break;
