@@ -5,7 +5,7 @@ module.exports = (message, args) => {
             args.forEach(name => {
                 member = message.guild.members.find(member => member.displayName === name);
                 member.addRole(tutorRole)
-                    .then(message.channel.send(`${member.displayName} is tutor`))
+                    .then(message.channel.send(`${member.displayName} has become tutor`))
                     .catch(error => console.log(error));
             });
         } else {
@@ -14,5 +14,5 @@ module.exports = (message, args) => {
     } catch (error) {
         console.log(error);
     }
-    
+
 }
