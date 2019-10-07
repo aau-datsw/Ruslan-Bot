@@ -7,6 +7,11 @@ const purgeMe = require('../commands/purgeMe.js');
 const setup = require('../commands/setup.js');
 const update = require('../commands/update.js');
 const quickpurge = require('../commands/quickpurge.js');
+const help = require('../commands/help.js');
+const nickname = require('../commands/nickname.js');
+
+
+
 
 
 module.exports = (client, message) => {
@@ -29,11 +34,10 @@ function command(message) {
 
     const adminRole = message.member.guild.roles.find(r => r.name === "Admin");
     const plannerRole = message.member.guild.roles.find(r => r.name === "Ruslan Planlægger");
-    const tutorRole = message.member.guild.roles.find(r => r.name === "Tutor");
     const ruslingRole = message.member.guild.roles.find(r => r.name === "Rusling");
 
     if (message.member.highestRole.comparePositionTo(adminRole) >= 0) {
-        adminCommands(message, command);
+        adminCommands(message, command, args);
     }
     if (message.member.highestRole.comparePositionTo(plannerRole) >= 0) {
         plannerCommands(message, command, args);
@@ -46,9 +50,10 @@ function command(message) {
     }
 }
 
-function adminCommands(message, command) {
+function adminCommands(message, command, args) {
     switch (command) {
         case 'purgebot':
+            message.delete();
             purgeBot(message.channel);
             break;
         case 'purgeme':
@@ -56,6 +61,9 @@ function adminCommands(message, command) {
             break;
         case 'quickpurge':
             quickpurge(message);
+            break;
+        case 'nickname':
+            nickname(message, args);
             break;
         default:
             break;
@@ -79,9 +87,11 @@ function plannerCommands(message, command, args) {
 }
 
 function ruslingCommands(message, command) {
-
+    message.delete();
     switch (command) {
         case 'help':
+        case 'commands':
+            help(message);
             break;
         case 'cs':
             //cs(message);
@@ -95,6 +105,7 @@ function ruslingCommands(message, command) {
 }
 
 function welcomeCommands(message, command) {
+    message.delete();
     if (message.member.nickname) {
         switch (command) {
             case 'rusling':
@@ -105,9 +116,8 @@ function welcomeCommands(message, command) {
         }
     }
     else {
-        message.author.send(`${message.member.displayName} change your name(nickname), to your real name`);
+        message.reply(`${message.member.displayName} change your name(nickname), to your real name\nYou can use the command "!nickname YourNameHere"`);
     }
-    //purgeChannelforAuthor(message);
 }
 
 function welcomeTutor(message) {
@@ -119,4 +129,3 @@ function welcomeTutor(message) {
         tutor(message);
     }
 }
-
