@@ -27,7 +27,7 @@ module.exports = message => {
         newCommand("nickname", "!nickname YourNameHere");
     }
 
-    message.reply(helpEmbed);
+    message.member.createDM().then(channel => channel.send(helpEmbed));
 
     function newCommand(commandString, commandDescription) {
         helpEmbed.addField('!' + commandString, `*${commandDescription}*`, true);
