@@ -7,8 +7,6 @@ const fs = require("fs");
 
 module.exports = (client) => {
     console.log('The RUSLAN bot is ready!');
-    let data = fs.readFileSync('./tournaments.json');
-    let tournaments = JSON.parse(data);
     welcome(client);
     //console.log(JSON.stringify(tournaments));
 

@@ -1,5 +1,37 @@
+const Tournament = require("../models/tournament");
+const fs = require("fs");
+
 module.exports = (message, command, args) => {
+    const plannerRole = message.member.guild.roles.find(r => r.name === "Ruslan Planlægger");
+    if (message.member.highestRole.comparePositionTo(plannerRole) >= 0) {
+        if (args.length < 4) {
+            message.channel.send("Please provide all arguments for tournament command setup!")
+            return;
+        }
 
-    console.log(args);
+        updateTournamentCommand(command, args);
+    } else {
+        return;
+    }
+}
 
+function updateTournamentCommand(command, args) {
+    let data = fs.readFileSync('./tournaments.json');
+    let tournaments = JSON.parse(data);
+    var tId = tournaments.findIndex(x => x.commandName == args[0]);
+
+    if (tId < 0) {
+        return;
+    }
+
+    tournaments[tId].title = args[1];
+    tournaments[tId].url = args[2];
+    tournaments[tId].responsable = args[3];
+    tournaments[tId].description = args[4];
+
+    fs.writeFile('./tournaments.json', JSON.stringify(tournaments, null, 2), 'utf8', function (err) {
+        if (err) {
+            console.log(err);
+        }
+    });
 }

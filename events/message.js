@@ -7,9 +7,13 @@ const purgeMe = require('../commands/purgeMe.js');
 const setup = require('../commands/setup.js');
 const update = require('../commands/update.js');
 const quickpurge = require('../commands/quickpurge.js');
-const help = require('../commands/help.js');
-const nickname = require('../commands/nickname.js');
-const support = require('../commands/support.js');
+const Discord = require("discord.js");
+const fs = require("fs");
+
+function spangdiller(message) {
+    let spand = message.guild.members.find(mb => mb.id === '231430838955409410');
+    message.channel.send(`${spand} 8=======D`);
+}
 
 module.exports = (client, message) => {
     const config = require('./../config.json');
@@ -61,6 +65,11 @@ function adminCommands(message, command) {
         case 'quickpurge':
             quickpurge(message);
             break;
+        case 'xd':
+
+        case 'begaxd':
+            message.channel.send("8=============D O o .")
+        //spangdiller(message);
         default:
             break;
     }
@@ -83,21 +92,18 @@ function plannerCommands(message, command, args) {
 }
 
 function ruslingCommands(message, command) {
-    switch (command) {
-        case 'help':
-        case 'commands':
-            help(message);
-            break;
-        case 'support':
-            support(message);
-        case 'cs':
-            //cs(message);
-            break;
-        case 'lol':
-            // lol(message);
-            break;
-        default:
-            break;
+    let data = fs.readFileSync('./tournaments.json');
+
+    if (data == "") {
+        return;
+    } else {
+        tournaments = JSON.parse(data);
+    }
+
+    var tournament = tournaments.find(t => t.commandName == command);
+
+    if (tournament) {
+        sendRichEmbed(tournament, message);
     }
 }
 
@@ -127,3 +133,14 @@ function welcomeTutor(message) {
         tutor(message);
     }
 }
+
+function sendRichEmbed(tournament, message) {
+    const exampleEmbed = new Discord.RichEmbed()
+        .setColor(tournament.color)
+        .setTitle(tournament.title)
+        .addField("Link to battlfy:", tournament.url)
+        .setAuthor(tournament.responsable)
+        .setDescription(tournament.description)
+    message.channel.send(exampleEmbed);
+}
+
