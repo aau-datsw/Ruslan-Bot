@@ -57,7 +57,7 @@ function command(message) {
     message.delete();
 }
 
-function adminCommands(message, command) {
+function adminCommands(message, command, args) {
     switch (command) {
         //case 'smash' :
         //    return smash(message, args);
@@ -140,7 +140,6 @@ function welcomeCommands(message, command, args) {
         default:
             break;
     }
-    message.delete();
 }
 
 function welcomeTutor(message) {
