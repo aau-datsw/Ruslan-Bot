@@ -24,9 +24,11 @@ module.exports = message => {
 
     }
     if (message.member.highestRole.comparePositionTo(ruslingRole) >= 0) {
-        newCommand("tournamentName", "displays information about each tournament. ex: '!cs' or '!lol'");
+        //newCommand("tournamentName", "displays information about each tournament. ex: '!cs' or '!lol'");
+        newCommand("support", "if you need live support");
     } else {
-        newCommand("nickname", "!nickname YourNameHere");
+        newCommand("rusling", "to become a rusling");
+        newCommand("nickname", "!nickname Your Name Here");
     }
 
     message.member.createDM().then(channel => channel.send(helpEmbed));

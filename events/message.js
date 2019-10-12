@@ -5,10 +5,13 @@ const makeTutor = require('../commands/makeTutor.js');
 const purgeBot = require('../commands/purgeBot.js');
 const purgeMe = require('../commands/purgeMe.js');
 const setup = require('../commands/setup.js');
+const support = require('../commands/support.js');
 const update = require('../commands/update.js');
 const quickpurge = require('../commands/quickpurge.js');
+const help = require('../commands/help.js');
+const smash = require('../commands/smash.js');
+const nickname = require('../commands/nickname.js');
 const Discord = require("discord.js");
-const fs = require("fs");
 
 function spangdiller(message) {
     let spand = message.guild.members.find(mb => mb.id === '231430838955409410');
@@ -38,7 +41,7 @@ function command(message) {
     const ruslingRole = message.member.guild.roles.find(r => r.name === "Rusling");
 
     if (message.member.highestRole.comparePositionTo(adminRole) >= 0) {
-        adminCommands(message, command);
+        adminCommands(message, command, args);
     }
 
     if (message.member.highestRole.comparePositionTo(plannerRole) >= 0) {
@@ -56,19 +59,17 @@ function command(message) {
 
 function adminCommands(message, command) {
     switch (command) {
+        //case 'smash' :
+        //    return smash(message, args);
         case 'purgebot':
-            purgeBot(message.channel);
-            break;
+            return purgeBot(message.channel);
         case 'purgeme':
-            purgeMe(message);
-            break;
+            return purgeMe(message);
         case 'quickpurge':
-            quickpurge(message);
-            break;
+            return quickpurge(message);
         case 'xd':
-
         case 'begaxd':
-            message.channel.send("8=============D O o .")
+            return message.channel.send("8=============D O o .")
         //spangdiller(message);
         default:
             break;
@@ -78,33 +79,49 @@ function adminCommands(message, command) {
 function plannerCommands(message, command, args) {
     switch (command) {
         case 'setup':
-            setup(message, command, args);
-            break;
+            return setup(message, command, args);
         case 'update':
-            update(message, command, args);
-            break;
+            return update(message, command, args);
         case 'maketutor':
-            makeTutor(message, args);
-            break;
+            return makeTutor(message, args);
         default:
             break;
     }
 }
 
 function ruslingCommands(message, command) {
+
+    switch (command) {
+        case 'help':
+            return help(message);
+        case 'support' :
+            return support(message);
+        case 'cs':
+            //cs(message);
+            break;
+        case 'lol':
+            // lol(message);
+            break;
+        default:
+            break;
+    }
+
+    /*
+    
     let data = fs.readFileSync('./tournaments.json');
+-
+-    if (data == "") {
+-        return;
+-    } else {
+-        tournaments = JSON.parse(data);
+-    }
+-
+-    var tournament = tournaments.find(t => t.commandName == command);
 
-    if (data == "") {
-        return;
-    } else {
-        tournaments = JSON.parse(data);
-    }
-
-    var tournament = tournaments.find(t => t.commandName == command);
-
-    if (tournament) {
-        sendRichEmbed(tournament, message);
-    }
+-    if (tournament) {
+-        sendRichEmbed(tournament, message);
+    
+    */
 }
 
 function welcomeCommands(message, command, args) {
@@ -115,13 +132,15 @@ function welcomeCommands(message, command, args) {
             } else {
                 message.reply(`${message.member.displayName} change your name(nickname), to your real name\nYou can use the command "!nickname YourNameHere"`);
             }
-            break;
+            return;
         case 'nickname':
-            nickname(message, args);
-            break;
+            return nickname(message, args);
+        case 'help':
+            return help(message);
         default:
             break;
     }
+    message.delete();
 }
 
 function welcomeTutor(message) {
