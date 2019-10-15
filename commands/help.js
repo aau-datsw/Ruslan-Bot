@@ -24,10 +24,11 @@ module.exports = message => {
 
     }
     if (message.member.highestRole.comparePositionTo(ruslingRole) >= 0) {
-        //newCommand("tournamentName", "displays information about each tournament. ex: '!cs' or '!lol'");
         newCommand("support", "if you need live support");
+        newCommand("tournaments", "list all tournament commands");
     } else {
         newCommand("rusling", "to become a rusling");
+        newCommand("other", "to get access");
         newCommand("nickname", "!nickname Your Name Here");
     }
 
