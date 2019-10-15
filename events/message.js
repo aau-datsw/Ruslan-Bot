@@ -1,5 +1,5 @@
 require('dotenv').config();
-const rusling = require('../commands/rusling.js');
+const pleb = require('../commands/pleb.js');
 const tutor = require('../commands/tutor.js');
 const makeTutor = require('../commands/makeTutor.js');
 const purgeBot = require('../commands/purgeBot.js');
@@ -38,7 +38,7 @@ function command(message) {
 
     const adminRole = message.member.guild.roles.find(r => r.name === "Admin");
     const plannerRole = message.member.guild.roles.find(r => r.name === "Ruslan Planlægger");
-    const ruslingRole = message.member.guild.roles.find(r => r.name === "Rusling");
+    const plebRole = message.member.guild.roles.find(r => r.name === "Other");
 
     if (message.member.highestRole.comparePositionTo(adminRole) >= 0) {
         adminCommands(message, command, args);
@@ -48,7 +48,7 @@ function command(message) {
         plannerCommands(message, command, args);
     }
 
-    if (message.member.highestRole.comparePositionTo(ruslingRole) >= 0) {
+    if (message.member.highestRole.comparePositionTo(plebRole) >= 0) {
         ruslingCommands(message, command);
     } else {
         welcomeCommands(message, command, args);
@@ -59,8 +59,8 @@ function command(message) {
 
 function adminCommands(message, command, args) {
     switch (command) {
-        //case 'smash' :
-        //    return smash(message, args);
+        case 'smash' :
+            return smash(message, args);
         case 'purgebot':
             return purgeBot(message.channel);
         case 'purgeme':
@@ -127,8 +127,9 @@ function ruslingCommands(message, command) {
 function welcomeCommands(message, command, args) {
     switch (command) {
         case 'rusling':
+        case 'other':
             if (message.member.nickname) {
-                rusling(message);
+                pleb(message);
             } else {
                 message.reply(`${message.member.displayName} change your name(nickname), to your real name\nYou can use the command "!nickname YourNameHere"`);
             }
