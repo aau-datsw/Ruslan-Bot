@@ -9,14 +9,9 @@ const support = require('../commands/support.js');
 const update = require('../commands/update.js');
 const quickpurge = require('../commands/quickpurge.js');
 const help = require('../commands/help.js');
-const smash = require('../commands/smash.js');
+//const smash = require('../commands/smash.js');
 const nickname = require('../commands/nickname.js');
 const Discord = require("discord.js");
-
-function spangdiller(message) {
-    let spand = message.guild.members.find(mb => mb.id === '231430838955409410');
-    message.channel.send(`${spand} 8=======D`);
-}
 
 module.exports = (client, message) => {
     const config = require('./../config.json');
@@ -59,8 +54,8 @@ function command(message) {
 
 function adminCommands(message, command, args) {
     switch (command) {
-        case 'smash' :
-            return smash(message, args);
+        //case 'smash' :
+        //    return smash(message, args);
         case 'purgebot':
             return purgeBot(message.channel);
         case 'purgeme':
@@ -68,8 +63,9 @@ function adminCommands(message, command, args) {
         case 'quickpurge':
             return quickpurge(message);
         case 'xd':
+            return message.channel.send("8=====D o .");
         case 'begaxd':
-            return message.channel.send("8=============D O o .")
+            return message.channel.send("8===============D O o .");
         //spangdiller(message);
         default:
             break;
