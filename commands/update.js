@@ -4,8 +4,8 @@ const fs = require("fs");
 module.exports = (message, command, args) => {
     const plannerRole = message.member.guild.roles.find(r => r.name === "Ruslan Planlægger");
     if (message.member.highestRole.comparePositionTo(plannerRole) >= 0) {
-        if (args.length < 4) {
-            message.channel.send("Please provide all arguments for tournament command setup!")
+        if (args.length < 6) {
+            message.channel.send("Please provide all arguments for tournament command update!")
             return;
         }
 
@@ -26,8 +26,9 @@ function updateTournamentCommand(command, args) {
 
     tournaments[tId].title = args[1];
     tournaments[tId].url = args[2];
-    tournaments[tId].responsable = args[3];
-    tournaments[tId].description = args[4];
+    tournaments[tId].thumburl = args[3]
+    tournaments[tId].responsable = args[4];
+    tournaments[tId].description = args[5];
 
     fs.writeFile('./tournaments.json', JSON.stringify(tournaments, null, 2), 'utf8', function (err) {
         if (err) {

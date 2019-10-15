@@ -9,6 +9,8 @@ const support = require('../commands/support.js');
 const update = require('../commands/update.js');
 const quickpurge = require('../commands/quickpurge.js');
 const help = require('../commands/help.js');
+const tournament = require('../commands/tournamentCommand.js');
+const showTournaments = require('../commands/showTournaments.js');
 //const smash = require('../commands/smash.js');
 const nickname = require('../commands/nickname.js');
 const Discord = require("discord.js");
@@ -90,34 +92,13 @@ function ruslingCommands(message, command) {
     switch (command) {
         case 'help':
             return help(message);
-        case 'support' :
+        case 'support':
             return support(message);
-        case 'cs':
-            //cs(message);
-            break;
-        case 'lol':
-            // lol(message);
-            break;
+        case 'tournaments':
+            return showTournaments(message);
         default:
-            break;
+            return tournament(message, command);
     }
-
-    /*
-    
-    let data = fs.readFileSync('./tournaments.json');
--
--    if (data == "") {
--        return;
--    } else {
--        tournaments = JSON.parse(data);
--    }
--
--    var tournament = tournaments.find(t => t.commandName == command);
-
--    if (tournament) {
--        sendRichEmbed(tournament, message);
-    
-    */
 }
 
 function welcomeCommands(message, command, args) {
@@ -142,20 +123,7 @@ function welcomeCommands(message, command, args) {
 function welcomeTutor(message) {
     const args = message.content.slice(1).split(/ +/);
     const command = args.shift().toLowerCase();
-    console.log(message);
-    console.log("\n" + command);
     if (message.channel.recipient.id === message.author.id && command === 'tutor2005') {
         tutor(message);
     }
 }
-
-function sendRichEmbed(tournament, message) {
-    const exampleEmbed = new Discord.RichEmbed()
-        .setColor(tournament.color)
-        .setTitle(tournament.title)
-        .addField("Link to battlfy:", tournament.url)
-        .setAuthor(tournament.responsable)
-        .setDescription(tournament.description)
-    message.channel.send(exampleEmbed);
-}
-

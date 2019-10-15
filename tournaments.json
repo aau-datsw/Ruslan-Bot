@@ -1,50 +1,20 @@
 [
   {
-    "commandName": "torben",
-    "title": "2",
-    "responsable": "4",
-    "url": "https://lol.com",
-    "description": "3",
-    "color": "#ffc800"
+    "commandName": "lol",
+    "title": "**RUSLAN 2019 - League of Legends (Winner is: Team Smed)**",
+    "responsable": "<@216550596298145802> & <@309308079134998528>",
+    "url": "https://battlefy.com/rus-periode/ruslan-2019-team-fight-tactics/5d99cf8c1aca27661b48598a/info?infoTab=details",
+    "thumburl": "http://pluspng.com/img-png/league-of-legends-hd-png-file-lol-new-logo-png-900.png",
+    "description": "Dummy rules: Captains can report their team's score. \n Organizer will be announcing this shortly. Stay tuned.",
+    "color": "#4287f5"
   },
   {
-    "commandName": "cs",
-    "title": "1",
-    "responsable": "4",
-    "url": "2",
-    "description": "3",
-    "color": "#fff888"
-  },
-  {
-    "commandName": "pallu",
-    "title": "Hvad",
-    "responsable": "her",
-    "url": "sker",
-    "description": "der",
-    "color": "#ffc800"
-  },
-  {
-    "commandName": "pallu",
-    "title": "1",
-    "responsable": "4",
-    "url": "2",
-    "description": "3",
-    "color": "#ffc800"
-  },
-  {
-    "commandName": "anders",
-    "title": "1",
-    "responsable": "3",
-    "url": "2",
-    "description": "4",
-    "color": "#ffc800"
-  },
-  {
-    "commandName": "anders",
-    "title": "1",
-    "responsable": "4",
-    "url": "2",
-    "description": "3",
+    "commandName": "hej",
+    "title": "1 asd asd",
+    "responsable": "kjadshkjasd asdjha",
+    "url": "2 asd asd",
+    "thumburl": "http://pluspng.com/img-png/league-of-legends-hd-png-file-lol-new-logo-png-900.png",
+    "description": "asd asd",
     "color": "#ffc800"
   }
 ]
