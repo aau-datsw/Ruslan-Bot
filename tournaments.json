@@ -1,7 +1,7 @@
 [
   {
     "commandName": "lol",
-    "title": "**RUSLAN 2019 - League of Legends (Winner is: Team Smed)**",
+    "title": "**RUSLAN 2019 - League of Legends**",
     "responsable": "<@216550596298145802> & <@309308079134998528>",
     "url": "https://battlefy.com/rus-periode/ruslan-2019-team-fight-tactics/5d99cf8c1aca27661b48598a/info?infoTab=details",
     "thumburl": "http://pluspng.com/img-png/league-of-legends-hd-png-file-lol-new-logo-png-900.png",
@@ -9,12 +9,39 @@
     "color": "#4287f5"
   },
   {
-    "commandName": "hej",
-    "title": "1 asd asd",
-    "responsable": "kjadshkjasd asdjha",
-    "url": "2 asd asd",
-    "thumburl": "http://pluspng.com/img-png/league-of-legends-hd-png-file-lol-new-logo-png-900.png",
-    "description": "asd asd",
-    "color": "#ffc800"
+    "commandName": "rl",
+    "title": "**Rocket League - RUSLAN 2019**",
+    "responsable": "<@143056652721979392> (Langballe)",
+    "url": "https://battlefy.com/rus-periode/ruslan-2019-rocket-league/5d99cc66b2a42c6ceb6190c1/info",
+    "thumburl": "https://steamcdn-a.akamaihd.net/steam/apps/252950/header_alt_assets_8.jpg?t=1570149245",
+    "description": "3v3 tournament",
+    "color": "#3275a8"
+  },
+  {
+    "commandName": "tft",
+    "title": "**Team Fight Tactics - RUSLAN 2019**",
+    "responsable": "<@216550596298145802> & <@235290514117623818>",
+    "url": "https://battlefy.com/rus-periode/ruslan-2019-team-fight-tactics/5d99cf8c1aca27661b48598a/info?infoTab=details",
+    "thumburl": "https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwi4kbPpwJ7lAhVP46QKHezWAT8QjRx6BAgBEAQ&url=https%3A%2F%2Fleagueoflegends.fandom.com%2Fwiki%2FTeamfight_Tactics&psig=AOvVaw2QzIoKIakpj2yzkkp_UgnT&ust=1571237196646437",
+    "description": "GOGO TEAM",
+    "color": "#edd207"
+  },
+  {
+    "commandName": "pubg",
+    "title": "**PUBG - RUSLAN 2019**",
+    "responsable": "<@95575117463031808> (Hurley)",
+    "url": "https://www.toornament.com/en_US/tournaments/2956909678341980160/information",
+    "thumburl": "https://cdn57.androidauthority.net/wp-content/uploads/2017/11/pubg-mobile-840x496.png",
+    "description": "4-man squad 3 games",
+    "color": "#c78c04"
+  },
+  {
+    "commandName": "tm",
+    "title": "**Trackmania - RUSLAN 2019**",
+    "responsable": "<@143056652721979392> (Langballe) & <*114381354291953672> (Burla)",
+    "url": "IP til server: ",
+    "thumburl": "https://steamcdn-a.akamaihd.net/steam/apps/11020/header.jpg?t=1548090419/",
+    "description": "Welcome to hell. Best time wins!",
+    "color": "#00ba06"
   }
 ]
