@@ -3,10 +3,10 @@
     "commandName": "lol",
     "title": "**RUSLAN 2019 - League of Legends**",
     "responsable": "<@216550596298145802> & <@309308079134998528>",
-    "url": "https://battlefy.com/rus-periode/ruslan-2019-team-fight-tactics/5d99cf8c1aca27661b48598a/info?infoTab=details",
-    "thumburl": "http://pluspng.com/img-png/league-of-legends-hd-png-file-lol-new-logo-png-900.png",
-    "description": "Dummy rules: Captains can report their team's score. \n Organizer will be announcing this shortly. Stay tuned.",
-    "color": "#4287f5"
+    "url": "https://battlefy.com/rus-periode/ruslan-2019-league-of-legends/5da5cf5f59fec334b79343d4/info",
+    "thumburl": "https://knowtechie.com/wp-content/uploads/2019/05/league-of-legends.jpg",
+    "description": "5v5 Summoners Rift",
+    "color": "#ffff00"
   },
   {
     "commandName": "rl",
@@ -22,8 +22,8 @@
     "title": "**Team Fight Tactics - RUSLAN 2019**",
     "responsable": "<@216550596298145802> & <@235290514117623818>",
     "url": "https://battlefy.com/rus-periode/ruslan-2019-team-fight-tactics/5d99cf8c1aca27661b48598a/info?infoTab=details",
-    "thumburl": "https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwi4kbPpwJ7lAhVP46QKHezWAT8QjRx6BAgBEAQ&url=https%3A%2F%2Fleagueoflegends.fandom.com%2Fwiki%2FTeamfight_Tactics&psig=AOvVaw2QzIoKIakpj2yzkkp_UgnT&ust=1571237196646437",
-    "description": "GOGO TEAM",
+    "thumburl": "https://www.strategygamer.com/assets/BlogPosts/_resampled/ScaleWidthWzExNDBd/FillWzExNDAsNjAwXQ/TFT-Logo.jpg",
+    "description": "free4all",
     "color": "#edd207"
   },
   {
@@ -38,7 +38,16 @@
   {
     "commandName": "tm",
     "title": "**Trackmania - RUSLAN 2019**",
-    "responsable": "<@143056652721979392> (Langballe) & <*114381354291953672> (Burla)",
+    "responsable": "<@143056652721979392> (Langballe) & <@114381354291953672> (Burla)",
+    "url": "IP til server: ",
+    "thumburl": "https://steamcdn-a.akamaihd.net/steam/apps/11020/header.jpg?t=1548090419/",
+    "description": "Welcome to hell. Best time wins!",
+    "color": "#00ba06"
+  },
+  {
+    "commandName": "tm",
+    "title": "**Trackmania - RUSLAN 2019**",
+    "responsable": "<@143056652721979392> (Langballe) & <@114381354291953672> (Burla)",
     "url": "IP til server: ",
     "thumburl": "https://steamcdn-a.akamaihd.net/steam/apps/11020/header.jpg?t=1548090419/",
     "description": "Welcome to hell. Best time wins!",
