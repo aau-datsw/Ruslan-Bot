@@ -45,12 +45,12 @@
     "color": "#00ba06"
   },
   {
-    "commandName": "tm",
-    "title": "**Trackmania - RUSLAN 2019**",
-    "responsable": "<@143056652721979392> (Langballe) & <@114381354291953672> (Burla)",
-    "url": "IP til server: ",
-    "thumburl": "https://steamcdn-a.akamaihd.net/steam/apps/11020/header.jpg?t=1548090419/",
-    "description": "Welcome to hell. Best time wins!",
+    "commandName": "csgo",
+    "title": "**CS:GO - RUSLAN 2019**",
+    "responsable": "<@140499733553741824> & <@493483313789534209> (Frederik Bendix)",
+    "url": "https://challonge.com/twle58hg/participants",
+    "thumburl": "https://steamuserimages-a.akamaihd.net/ugc/933807557811000159/B8936CF76AEA207839139E32593F7FA0C4AEC4C9/",
+    "description": "CS:GO Tournament!",
     "color": "#00ba06"
   }
 ]
