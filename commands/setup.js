@@ -3,7 +3,7 @@ const fs = require("fs");
 
 module.exports = (message, command) => {
     const args = message.content.slice(7).split(/ -+/);
-    const plannerRole = message.member.guild.roles.find(r => r.name === "Ruslan Planlægger");
+    const plannerRole = message.member.guild.roles.cache.find(r => r.name === "Ruslan Planlægger");
 
     if (message.member.highestRole.comparePositionTo(plannerRole) >= 0) {
         if (args.length < 6) {

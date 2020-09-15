@@ -1,3 +1,5 @@
 {
-"prefix": "!"
+    "prefix": "!",
+    "rules_channel": "0000",
+    "support_channel_vc": "0000"
 }
