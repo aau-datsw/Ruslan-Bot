@@ -19,7 +19,7 @@ module.exports = (message, command) => {
 }
 
 function sendRichEmbed(tournament, message) {
-    const exampleEmbed = new Discord.RichEmbed()
+    const exampleEmbed = new Discord.MessageEmbed()
         .setColor(tournament.color)
         .setTitle(tournament.title)
         .addField("Link to battlfy:", tournament.url)
