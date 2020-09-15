@@ -15,8 +15,10 @@ const showTournaments = require('../commands/showTournaments.js');
 const nickname = require('../commands/nickname.js');
 const Discord = require("discord.js");
 
+const config = require('./../config.json');
+
+
 module.exports = (client, message) => {
-    const config = require('./../config.json');
 
     if (!message.content.startsWith(config.prefix) || message.author.bot) return;
 
@@ -33,19 +35,19 @@ function command(message) {
     const args = message.content.slice(1).split(/ +/);
     const command = args.shift().toLowerCase();
 
-    const adminRole = message.member.guild.roles.cache.find(r => r.name === "Admin");
-    const plannerRole = message.member.guild.roles.cache.find(r => r.name === "Ruslan Planlægger");
-    const plebRole = message.member.guild.roles.cache.find(r => r.name === "Other");
+    const adminRole = message.member.guild.roles.cache.find(r => r.id === config.admin_role_id);
+    const plannerRole = message.member.guild.roles.cache.find(r => r.id === config.planner_role_id);
+    const plebRole = message.member.guild.roles.cache.find(r => r.id === config.pleb_role_id);
 
-    if (message.member.highestRole.comparePositionTo(adminRole) >= 0) {
+    if (message.member.roles.highest.comparePositionTo(adminRole) >= 0) {
         adminCommands(message, command, args);
     }
 
-    if (message.member.highestRole.comparePositionTo(plannerRole) >= 0) {
+    if (message.member.roles.highest.comparePositionTo(plannerRole) >= 0) {
         plannerCommands(message, command, args);
     }
 
-    if (message.member.highestRole.comparePositionTo(plebRole) >= 0) {
+    if (message.member.roles.highest.comparePositionTo(plebRole) >= 0) {
         ruslingCommands(message, command);
     } else {
         welcomeCommands(message, command, args);
