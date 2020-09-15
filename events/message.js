@@ -33,9 +33,9 @@ function command(message) {
     const args = message.content.slice(1).split(/ +/);
     const command = args.shift().toLowerCase();
 
-    const adminRole = message.member.guild.roles.find(r => r.name === "Admin");
-    const plannerRole = message.member.guild.roles.find(r => r.name === "Ruslan Planlægger");
-    const plebRole = message.member.guild.roles.find(r => r.name === "Other");
+    const adminRole = message.member.guild.roles.cache.find(r => r.name === "Admin");
+    const plannerRole = message.member.guild.roles.cache.find(r => r.name === "Ruslan Planlægger");
+    const plebRole = message.member.guild.roles.cache.find(r => r.name === "Other");
 
     if (message.member.highestRole.comparePositionTo(adminRole) >= 0) {
         adminCommands(message, command, args);

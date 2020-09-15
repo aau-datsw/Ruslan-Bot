@@ -5,12 +5,7 @@ const config = require('../config.json')
 module.exports = (client) => {
     const channel = client.channels.cache.find(ch => ch.name === 'welcome'); // change to env file id
         try {
-            channel.fetchMessages()
-                .then(messages => {
-                    const botMsg = messages.filter(fetchedMsg => fetchedMsg.author.bot); // boolean for bot
-                    channel.bulkDelete(botMsg);
-                })
-                .catch(console.log);
+            channel.bulkDelete(100);
         } catch (err) {
             console.log(err);
         }
