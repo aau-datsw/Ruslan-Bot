@@ -1,5 +1,9 @@
 {
     "prefix": "!",
     "rules_channel": "0000",
-    "support_channel_vc": "0000"
+    "support_channel_vc": "0000",
+    "admin_role_id": "406060195874209794",
+    "planner_role_id": "542036396232278036",
+    "pleb_role_id": "542068805753634841"
+
 }
