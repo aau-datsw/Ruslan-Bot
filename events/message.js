@@ -18,8 +18,7 @@ const Discord = require("discord.js");
 module.exports = (client, message) => {
     const config = require('./../config.json');
 
-    if (!message.content.startsWith(config.prefix) || message.author.bot) 
-        return;
+    if (!message.content.startsWith(config.prefix) || message.author.bot) return;
 
     if (message.channel.type === 'text') {
         command(message);
