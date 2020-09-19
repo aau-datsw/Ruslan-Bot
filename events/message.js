@@ -3,22 +3,6 @@ require('dotenv').config();
 // Actions here
 const tutor = require('../actions/tutor.js');
 
-
-const pleb = require('../commands/pleb.js');
-const makeTutor = require('../commands/makeTutor.js');
-const purgeBot = require('../commands/purgeBot.js');
-const purgeMe = require('../commands/purgeMe.js');
-const setup = require('../commands/setup.js');
-const support = require('../commands/support.js');
-const update = require('../commands/update.js');
-const quickpurge = require('../commands/quickpurge.js');
-const help = require('../commands/help.js');
-const tournament = require('../commands/tournamentCommand.js');
-const showTournaments = require('../commands/showTournaments.js');
-//const smash = require('../commands/smash.js');
-const nickname = require('../commands/nickname.js');
-const Discord = require("discord.js");
-
 const config = require('./../config.json');
 
 
