@@ -43,3 +43,11 @@ function addTournamentCommand(tournament, message) {
         return;
     }
 }
+
+
+
+module.exports.config = {
+    name: 'setup',
+    aliases: [],
+    description: 'Creates the necessary files for the bot',
+}

@@ -16,3 +16,9 @@ module.exports = (message, args) => {
     }
 
 }
+
+module.exports.config = {
+    name: 'makeTutor',
+    aliases: ['tutor'],
+    description: 'Makes a given user a tutor',
+}

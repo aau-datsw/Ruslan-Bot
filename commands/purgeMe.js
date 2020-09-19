@@ -5,3 +5,10 @@ module.exports = message => {
         console.log(error);
     }
 }
+
+
+module.exports.config = {
+    name: 'purgeme',
+    aliases: [],
+    description: 'Purges all messages from the sender',
+}

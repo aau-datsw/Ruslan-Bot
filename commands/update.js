@@ -36,3 +36,11 @@ function updateTournamentCommand(command, args) {
         }
     });
 }
+
+
+
+module.exports.config = {
+    name: 'update',
+    aliases: [],
+    description: 'Updates the tournament file',
+}

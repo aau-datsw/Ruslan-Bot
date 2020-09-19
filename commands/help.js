@@ -5,7 +5,7 @@ const config = require('../config.json');
 module.exports = message => {
     const adminRole = message.member.guild.roles.cache.find(r => r.id === config.admin_role_id);
     const plannerRole = message.member.guild.roles.cache.find(r => r.id === config.planner_role_id);
-    const ruslingRole = message.member.guild.roles.cache.find(r => r.id === config.pleb_role_id);
+    const ruslingRole = message.member.guild.roles.cache.find(r => r.id === config.rusling_role_id);
 
     const helpEmbed = new Discord.MessageEmbed()
         .setColor('#ffc800')
@@ -39,4 +39,10 @@ module.exports = message => {
     function newCommand(commandString, commandDescription) {
         helpEmbed.addField('!' + commandString, `*${commandDescription}*`, true);
     }
+}
+
+module.exports.config = {
+    name: 'help',
+    aliases: ['h'],
+    description: 'Provides a list of commands for the user to run',
 }

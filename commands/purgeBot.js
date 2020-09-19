@@ -8,3 +8,10 @@ module.exports = (channel, message) => {
             console.log("purge:\n    " + error)
         );
 }
+
+
+module.exports.config = {
+    name: 'purgebot',
+    aliases: ['pb'],
+    description: 'Removes all messages from the bot',
+}

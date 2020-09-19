@@ -19,3 +19,11 @@ function listCommands(tournaments, message) {
     });
     message.channel.send(commands);
 }
+
+
+
+module.exports.config = {
+    name: 'showtournaments',
+    aliases: ['tournaments'],
+    description: 'Huh?',
+}

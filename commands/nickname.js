@@ -10,3 +10,10 @@ module.exports = (message, args) => {
         console.log(error);
     }
 }
+
+
+module.exports.config = {
+    name: 'nickname',
+    aliases: ['nick'],
+    description: 'Changes the nickname of the sender',
+}

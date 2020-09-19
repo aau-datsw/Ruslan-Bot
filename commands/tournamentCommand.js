@@ -28,3 +28,11 @@ function sendRichEmbed(tournament, message) {
         .setDescription(tournament.description)
     message.channel.send(exampleEmbed);
 }
+
+
+
+module.exports.config = {
+    name: 'tournament',
+    aliases: [],
+    description: 'Gets information about a tournament',
+}

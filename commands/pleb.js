@@ -1,4 +1,4 @@
-const purgeAuthor = require('./purgeChannelforAuthor.js');
+
 
 module.exports = message => {
     const ruslingRole = message.member.guild.roles.find(r => r.name === "Rusling");
@@ -24,5 +24,11 @@ function addRoleToMember(message, role){
     message.member.addRole(role)
         .then(console.log(`${message.member.displayName}` + " is " + role.name))
         .catch(error => console.log(error));
-    purgeAuthor(message);
+}
+
+
+module.exports.config = {
+    name: 'rusling',
+    aliases: [],
+    description: 'Sets the rusling role for a user',
 }

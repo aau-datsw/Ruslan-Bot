@@ -14,3 +14,11 @@ module.exports = (message) => {
         console.log(error);
     }
 }
+
+
+
+module.exports.config = {
+    name: 'support',
+    aliases: [],
+    description: 'Gives instructions on what to do if you need help',
+}

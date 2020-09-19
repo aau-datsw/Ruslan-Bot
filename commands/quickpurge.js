@@ -5,3 +5,10 @@ module.exports = message => {
         console.log(error);
     }
 }
+
+
+module.exports.config = {
+    name: 'quickpurge',
+    aliases: ['qp'],
+    description: 'Purges 100 messages from a given channel',
+}
