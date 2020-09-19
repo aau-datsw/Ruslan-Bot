@@ -12,7 +12,7 @@ module.exports = async (client, message) => {
 
     if (message.channel.type === 'text') {
         let command = message.content.slice(1).split(/\s+/g)[0];
-        let args = message.content.slice(1).split(/\s+/g).shift();
+        let args = message.content.slice(1).replace(command,"").split(/\s+/g).shift();
         let commandFile = client.commands.get(command);
         if (commandFile) {
             if (message.member.roles.highest.comparePositionTo(commandFile.config.permission)) {
