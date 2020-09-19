@@ -1,6 +1,15 @@
-module.exports = message => {
+module.exports.execute = async (client, message, args) => {
     try {
-        message.channel.messages.bulkDelete(100);
+        await message.delete();
+        let fetchedMessages;
+        if (args == null) {
+            fetchedMessages = await message.channel.messages.fetch(100);
+        } else if (args[0] == 'all') {
+            fetchedMessages = await message.channel.messages.fetch();
+        } else if (Number(args[0])) {
+            fetchedMessages = await message.channel.messages.fetch(Number(args[0]));
+        }
+        await message.channel.bulkDelete(message.channel.messages.cache, false).then(messages => console.log(`Bulk deleted ${messages.size} messages`)).catch(() => fetchedMessages.forEach(message => message.delete()))
     } catch (error) {
         console.log(error);
     }
