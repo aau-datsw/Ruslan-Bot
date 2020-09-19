@@ -1,0 +1,14 @@
+{
+    "prefix": "!",
+    
+    
+    "rules_channel": "0000",
+    "support_channel_vc": "0000",
+    "tutor_bump": "0000",
+
+    
+    "admin_role_id": "0000",
+    "planner_role_id": "0000",
+    "rusling_role_id": "0000"
+    
+}
