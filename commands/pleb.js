@@ -1,6 +1,6 @@
 
 
-module.exports = message => {
+module.exports.execute = async (client, message, args) => {
     const ruslingRole = message.member.guild.roles.find(r => r.name === "Rusling");
     const otherRole = message.member.guild.roles.find(r => r.name === "Other");
     const command = message.content.toLowerCase().slice(1).split(/ +/).shift();

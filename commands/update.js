@@ -1,7 +1,7 @@
 const Tournament = require("../models/tournament");
 const fs = require("fs");
 
-module.exports = (message, command, args) => {
+module.exports.execute = async (client, message, args) => {
     const plannerRole = message.member.guild.roles.find(r => r.name === "Ruslan Planlægger");
     if (message.member.highestRole.comparePositionTo(plannerRole) >= 0) {
         if (args.length < 6) {

@@ -1,4 +1,4 @@
-module.exports = (message, args) => {
+module.exports.execute = async (client, message, args) => {
     const tutorRole = message.member.guild.roles.find(r => r.name === "Tutor");
     try {
         if (args.length > 0) {

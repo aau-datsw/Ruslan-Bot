@@ -1,14 +1,14 @@
 const config = require('../config.json');
 
-module.exports = (message) => {
+module.exports.execute = async (client, message, args) => {
     try {
         const member = message.member;
-        const supportChannel = member.guild.channels.find(ch => ch.id === config.support_channel_vc);
+        const supportChannel = member.guild.channels.cache.find(ch => ch.id === config.support_channel_vc);
 
         if (member.voiceChannel){
             member.setVoiceChannel(supportChannel); //help voice channel
         } else {
-            message.reply(`Go to the voice channel ->'<#${config.support_channel_vc}>' to get live support`);
+            message.reply(`Go to the voice channel <#${config.support_channel_vc}> to get live support`);
         }
     } catch (error) {
         console.log(error);

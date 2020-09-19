@@ -1,5 +1,6 @@
-module.exports = message => {
+module.exports.execute = async (client, message, args) => {
     try {
+        let fetchedMessages = await message.channel.messages.fetch(100, false).filter()
         message.channel.bulkDelete(message.channel.messages.cache.filter(msg => msg.author === message.author))
     } catch (error) {
         console.log(error);

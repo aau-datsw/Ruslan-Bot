@@ -1,4 +1,4 @@
-module.exports = (channel, message) => {
+module.exports.execute = async (client, message, args) => {
     channel.fetchMessages({ limit: 100 })
         .then(allMsg => {
             const allMsgByBot = allMsg.filter(fetchedMsg => fetchedMsg.author.bot);

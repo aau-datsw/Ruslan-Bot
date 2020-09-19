@@ -1,7 +1,7 @@
 const Tournament = require("../models/tournament");
 const fs = require("fs");
 
-module.exports = (message) => {
+module.exports.execute = async (client, message, args) => {
     let data = fs.readFileSync('./tournaments.json');
 
     if (data == "") {

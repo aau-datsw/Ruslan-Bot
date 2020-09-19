@@ -1,4 +1,4 @@
-module.exports = (message, args) => {
+module.exports.execute = async (client, message, args) => {
     try {
         if (args) {
             message.member.setNickname(args.join(' '));
