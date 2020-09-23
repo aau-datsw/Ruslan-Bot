@@ -16,3 +16,6 @@ services:
 
     environment:
       WATCHTOWER_POLL_INTERVAL: 300
+      WATCHTOWER_NOTIFICATIONS: shoutrrr
+      WATCHTOWER_NOTIFICATION_URL: discord://7PpZloHa9bhD1kGBmvZ7rhE3nCIt105Wf1UqqnzONd43yA4s6iabCoaYy4LpzZTw3fJ0@758373085652582400
+      WATCHTOWER_NOTIFICATION_TEMPLATE: "{{range .}}{{.Time.Format \"2006-01-02 15:04:05\"}} ({{.Level}}): {{.Message}}{{println}}{{end}"
