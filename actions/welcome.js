@@ -11,6 +11,6 @@ module.exports.execute = (client) => {
         }
 
 
-    let exampleEmbed = "skrrrrt"
+    let exampleEmbed = "skrt"
     channel.send(exampleEmbed);
 }
