@@ -11,8 +11,8 @@ module.exports = async (client, message) => {
     if (!message.content.startsWith(config.prefix) || message.author.bot) return;
 
     if (message.channel.type === 'text') {
-        let command = message.content.slice(1).split(/\s+/g)[0];
-        let args = message.content.slice(1).split(/\s+/g).shift();
+        let args = message.content.slice(config.prefix.length).trim().split(' ');
+        let command = args.shift().toLowerCase();
         let commandFile = client.commands.get(command);
         if (commandFile) {
             await commandFile.execute(client, message, args);
