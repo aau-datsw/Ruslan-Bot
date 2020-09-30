@@ -20,3 +20,4 @@ services:
       WATCHTOWER_NOTIFICATIONS_LEVEL: 'debug'
       WATCHTOWER_NOTIFICATIONS: shoutrrr
       WATCHTOWER_NOTIFICATION_URL: discord://${DISCORD_NOTI_TOKEN}@${DISCORD_NOTI_CHANNEL}
+      WATCHTOWER_NOTIFICATION_TEMPLATE: "{{range .}}{{.Time.Format \"2006-01-02\"}}: {{.Message}}{{println}}{{end}}"

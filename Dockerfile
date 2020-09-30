@@ -5,7 +5,6 @@ WORKDIR /usr/src/app
 
 # add src files into docker image
 ADD src ./
-RUN ls -la
 
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied into the docker machine
