@@ -28,6 +28,7 @@ module.exports.execute = async (client, message, args) => {
     if (message.member.roles.highest.comparePositionTo(ruslingRole) >= 0) {
         newCommand("support", "if you need live support");
         newCommand("tournaments", "list all tournament commands");
+        newCommand("atournament", "Gather information about your tournaments");
     } else {
         newCommand("rusling", "to become a rusling");
         newCommand("other", "to get access");
