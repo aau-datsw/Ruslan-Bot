@@ -2,7 +2,7 @@ require('dotenv').config();
 const fs = require('fs');
 const config = require('../config.json')
 const Discord = require('discord.js');
-const ToornamentWrapper = require('../../../ToonamentWrapper/app.js'); // TODO Create actual wrapper in project
+const ToornamentWrapper = require('../Toornament_Wrapper/ToornamentWrapper.js');
 // This is for testing only
 
 module.exports.execute = async (client, message, args) => {
@@ -59,7 +59,6 @@ module.exports.execute = async (client, message, args) => {
                 vs ${resarr[0].opponents[1].participant == null ? 'TBD' : resarr[0].opponents[1].participant.name}`}
             )
             
-            console.log(resarr[0]);
             message.channel.send(toornamentEmbed);   
         } catch(error) {
             console.log(error);
