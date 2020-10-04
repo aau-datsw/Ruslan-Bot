@@ -1,7 +1,7 @@
+require('dotenv').config();
 const fetch = require('node-fetch');
 const url = "https://api.toornament.com/oauth/v2/token";
-
-const api_key = 'e9ArVuflgkORK3uJ5bs9IwXxxBoNL9YezfQcTxZX1wQ';
+api_key = process.env.API_KEY.toString();
 
 module.exports =  {
     Authenticate: async function Authenticate(id, secret) {
@@ -12,7 +12,7 @@ module.exports =  {
         params.append('scope', 'organizer:result organizer:participant')
         return fetch(url, {
             method: 'POST',
-            headers: {'X-Api-Key' : 'e9ArVuflgkORK3uJ5bs9IwXxxBoNL9YezfQcTxZX1wQ'},
+            headers: {'X-Api-Key' : api_key},
             body: params
         }).then(res => res.json()).then(obj => obj.access_token);
     },
@@ -145,43 +145,3 @@ module.exports =  {
         }).then(res => res.json()).then(obj => console.log(obj)).catch(console.log)
     }
 }
-
-//Authenticate('12dbb50df13160655e8e44b7224bilculpes40k4wgsoc80soo0k808skkk8wk8kg8kkcc8o8c', "30jjw0wylb408oc8ssgg8ggcc8g0wscwkc880k4804soo8og4o").then(auth_key => console.log);
-//console.log(auth_key);
-//getMatches(3927794528483983360, auth_key)
-
-async function main()
-{
-    let auth_key = await Authenticate('12dbb50df13160655e8e44b7224bilculpes40k4wgsoc80soo0k808skkk8wk8kg8kkcc8o8c', '30jjw0wylb408oc8ssgg8ggcc8g0wscwkc880k4804soo8og4o')
-    let teamID = await getParticipantID('3927794528483983360', auth_key, 'Team MegaDick');
-
-    getParticpiantsNextMatch('3927794528483983360', auth_key, 'Team MegaDick');
-    // let teamArr = await getParticipantArray('3927794528483983360', auth_key, teamID);
-    //let matches = await getMatches('3927794528483983360', auth_key);
-    //console.log(matches);
-    // getMatches('3927794528483983360', auth_key, {});
-    // getNextMatch(0,0,0);
-}
-
-// main();
-
-// async function getMatches(tournament_id, auth_key, args = {}) {
-//     const params = new URLSearchParams();
-//     const url = new URL(`https://api.toornament.com/organizer/v2/tournaments/${tournament_id}/matches`);
-//     for (const [key, value] of Object.entries(args)) {
-//         params.append(key, value);
-//     }
-//     url.search = params.toString();
-//     fetch(
-//          url, {
-//             method: 'GET',
-//             headers: {
-//                 'X-Api-Key' : 'e9ArVuflgkORK3uJ5bs9IwXxxBoNL9YezfQcTxZX1wQ',
-//                 'Authorization' : auth_key,
-//                 'Range' : 'matches=0-99'
-//             },
-//         },
-//     ).then(res => res.json()).then(obj => obj.forEach(element => {
-//        console.log(element.scheduled_datetime);
-//     })).catch(console.log)
-// }
