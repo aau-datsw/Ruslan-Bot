@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  bot:
+    container_name: ruslan-bot
+    image: 888aaen/ruslan-bot:latest
+    volumes:
+        - ./config.json:/usr/src/app/config.json
+    env_file: .env
+    restart: always
+  
+  watchtower:
+    container_name: watchtower
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+    environment:
+      WATCHTOWER_POLL_INTERVAL: 300
+      WATCHTOWER_NOTIFICATIONS_LEVEL: 'debug'
+      WATCHTOWER_NOTIFICATIONS: shoutrrr
+      WATCHTOWER_NOTIFICATION_URL: discord://${DISCORD_NOTI_TOKEN}@${DISCORD_NOTI_CHANNEL}
+      WATCHTOWER_NOTIFICATION_TEMPLATE: "{{range .}}{{.Time.Format \"2006-01-02\"}}: {{.Message}}{{println}}{{end}}"
