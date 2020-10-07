@@ -4,8 +4,8 @@
   "description": "A bot for ruslan 2019",
   "main": "bot.js",
   "scripts": {
-    "start": "node bot.js",
-    "dev": "nodemon bot.js"
+    "start": "node src/bot.js",
+    "dev": "nodemon src/bot.js"
   },
   "author": "Team ruslan",
   "dependencies": {
