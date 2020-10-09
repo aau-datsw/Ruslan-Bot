@@ -1,0 +1,36 @@
+{
+	"color": "0x0099ff",
+	"author": {
+		"name": "Velkommen til virtuelt Ruslan"
+	},
+	"description": "**Regler**\n1. Opfør jeg pænt, det vil sige ingen racistiske bemærkninger eller andre stødende kommentare\n2. Ingen spam af billeder eller tekster på serveren",
+	"thumbnail": {
+		"url": "https://cdn.discordapp.com/attachments/749414285209370694/762710870669131816/unknown.png"
+	},
+	"fields": [
+		{
+			"name": "Kommandoer",
+			"value": "Start med `!help`"
+		},
+		{
+			"name": "\u200b",
+			"value": "\u200b",
+			"inline": false
+		},
+		{
+			"name": "Turneringer?",
+			"value": "`!tournament`",
+			"inline": true
+		},
+		{
+			"name": "Brug for hjælp?",
+			"value": "`!support`",
+			"inline": true
+		},
+		{
+			"name": "Sæt et nickname?",
+			"value": "`!nickname <navn>`",
+			"inline": true
+		}
+	]
+}
