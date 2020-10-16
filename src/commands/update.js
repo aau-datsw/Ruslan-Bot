@@ -12,8 +12,8 @@ module.exports.execute = async (client, message, args) => {
 }
 
 module.exports.config = {
-    name: 'deltag',
-    aliases: ['attend'],
+    name: 'update',
+    aliases: ['pull'],
     description: 'Marks you as a signed up attendant',
     permission: config.admin_role_id
 }
