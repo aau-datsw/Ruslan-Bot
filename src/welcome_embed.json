@@ -9,8 +9,8 @@
 	},
 	"fields": [
 		{
-			"name": "Kommandoer",
-			"value": "Start med `!help`"
+			"name": "Accepterer du reglerne?",
+			"value": "`!attend <dig@student.aau.dk>`"
 		},
 		{
 			"name": "\u200b",
