@@ -32,7 +32,7 @@ module.exports.execute = async (client, message, args) => {
             //  Set up draw
             let new_draw = {
                 name: args[1],
-                description: args.slice(2).join(' '),
+                description: args.slice(2).join(' ').replace(/\\n/g,'\n'),
                 participants: []
             }
             draws_json.draws.push(new_draw);
