@@ -1,3 +1,4 @@
+const config = require('../config.json');
 module.exports.execute = async (client, message, args) => {
     try {
         if (args) {
@@ -16,4 +17,5 @@ module.exports.config = {
     name: 'nickname',
     aliases: ['nick'],
     description: 'Changes the nickname of the sender',
+    permission: config.rusling_role_id
 }

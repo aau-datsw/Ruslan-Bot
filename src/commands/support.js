@@ -21,4 +21,5 @@ module.exports.config = {
     name: 'support',
     aliases: [],
     description: 'Gives instructions on what to do if you need help',
+    permission: config.rusling_role_id
 }

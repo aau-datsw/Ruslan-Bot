@@ -1,5 +1,7 @@
 const Tournament = require("../models/tournament");
 const fs = require("fs");
+const config = require('../config.json');
+
 
 module.exports.execute = async (client, message, args) => {
     const plannerRole = message.member.guild.roles.cache.find(r => r.name === "Ruslan Planlægger");
@@ -49,4 +51,5 @@ module.exports.config = {
     name: 'setup',
     aliases: [],
     description: 'Creates the necessary files for the bot',
+    permission: config.admin_role_id
 }
