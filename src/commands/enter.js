@@ -4,6 +4,8 @@ const fs = require('fs')
 module.exports.execute = async (client, message, args) => {
     // !draw new "navn" "beskrivelse"
     // !enter "navn" "information"
+    await message.delete();
+
     let json;
     if (args.length < 2) {
         message.reply('Du skal som minimum vælge en lodtrækning og give et svar.\nSe `!lodtrækninger`')
@@ -30,7 +32,7 @@ module.exports.execute = async (client, message, args) => {
         })
 
         fs.writeFileSync('./draws.json', JSON.stringify(json, null, 4));
-        message.reply(`:tada: Du er nu med i lodtrækningen '${args[0]}'! :tada:`)
+        message.reply(`:tada: Du er nu med i lodtrækningen '${args[0]}'! :tada:`).then(msg => msg.delete({timeout: 10000}))
     }
 }
 
