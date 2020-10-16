@@ -25,5 +25,5 @@ module.exports.config = {
     name: 'deltag',
     aliases: ['attend'],
     description: 'Marks you as a signed up attendant',
-    permission: config.rusling_role_id
+    permission: 723895561849143347
 }
