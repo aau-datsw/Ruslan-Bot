@@ -22,8 +22,8 @@
 			"inline": false
 		},
 		{
-			"name": "Turneringer?",
-			"value": "`!tournament`",
+			"name": "Stream?",
+			"value": "`!stream`",
 			"inline": true
 		},
 		{
