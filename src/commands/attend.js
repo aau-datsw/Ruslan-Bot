@@ -25,5 +25,5 @@ module.exports.config = {
     name: 'deltag',
     aliases: ['attend'],
     description: 'Marks you as a signed up attendant',
-    permission: 723895561849143347
+    permission: "723895561849143347"
 }
