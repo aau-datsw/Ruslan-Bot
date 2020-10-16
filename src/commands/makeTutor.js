@@ -1,3 +1,5 @@
+const config = require('../config.json');
+
 module.exports.execute = async (client, message, args) => {
     const tutorRole = message.member.guild.roles.find(r => r.name === "Tutor");
     try {
@@ -21,4 +23,5 @@ module.exports.config = {
     name: 'makeTutor',
     aliases: ['tutor'],
     description: 'Makes a given user a tutor',
+    permission: config.admin_role_id
 }

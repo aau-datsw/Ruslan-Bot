@@ -12,10 +12,12 @@ module.exports = async (client, message) => {
 
     if (message.channel.type === 'text') {
         let command = message.content.slice(1).split(/\s+/g)[0];
-        let args = message.content.slice(1).split(/\s+/g).shift();
+        let args = message.content.slice(1).replace(command, '').split(/\s+/g).filter(elm => elm !='')
         let commandFile = client.commands.get(command);
         if (commandFile) {
-            await commandFile.execute(client, message, args);
+            let r = message.member.guild.roles.cache.find(r => r.id === commandFile.config.permission)
+            if (message.member.roles.highest.comparePositionTo(r) >= 0)
+                await commandFile.execute(client, message, args);
             return;
         }
         if (command) {
@@ -25,7 +27,9 @@ module.exports = async (client, message) => {
                 }
             }));
             if (commandFile) {
-                await commandFile.execute(client, message, args);
+                let r = message.member.guild.roles.cache.find(r => r.id === commandFile.config.permission)
+                if (message.member.roles.highest.comparePositionTo(r) >= 0)
+                    await commandFile.execute(client, message, args);
                 return;
             }
         }
