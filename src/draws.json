@@ -1,0 +1,20 @@
+{
+    "draws": [
+        {
+            "name": "test",
+            "description": "test",
+            "participants": []
+        },
+        {
+            "name": "PROSA",
+            "description": "Her trækker vi lod om tre højtalere....",
+            "participants": [
+                {
+                    "id": "149818848365772800",
+                    "usr": "Zaphoo",
+                    "info": "test"
+                }
+            ]
+        }
+    ]
+}
