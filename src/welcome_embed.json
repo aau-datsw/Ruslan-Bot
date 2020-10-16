@@ -13,6 +13,10 @@
 			"value": "Start med `!deltag <dig@student.aau.dk>`"
 		},
 		{
+			"name": "Nåede du ikke at skrive dig op?",
+			"value": "Ping <@95575117463031808> eller <@149818848365772800> for at blive tilmeldt."
+		},
+		{
 			"name": "\u200b",
 			"value": "\u200b",
 			"inline": false
