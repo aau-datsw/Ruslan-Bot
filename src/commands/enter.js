@@ -16,6 +16,10 @@ module.exports.execute = async (client, message, args) => {
         message.reply('Der er desværre ikke nogen aktive lodtrækninger lige nu...');
         return;
     }
+    if (message.member.roles.highest.comparePositionTo(config.rusling_role_id) > 0) {
+        message.reply('Du skal være rusling for at deltage!');
+        return;
+    }
     if (json.draws.some(dr => dr.name.toLowerCase() === args[0].toLowerCase())) {
         // En lodtrækning eksisterer
         let draw = json.draws.find(dr => dr.name.toLowerCase() === args[0].toLowerCase())
