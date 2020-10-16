@@ -1,3 +1,6 @@
+const config = require('../config.json');
+
+
 module.exports.execute = async (client, message, args) => {
     try {
         await message.delete();
@@ -20,4 +23,5 @@ module.exports.config = {
     name: 'quickpurge',
     aliases: ['qp'],
     description: 'Purges 100 messages from a given channel',
+    permission: config.admin_role_id
 }

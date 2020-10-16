@@ -1,3 +1,4 @@
+const config = require('../config.json');
 
 
 module.exports.execute = async (client, message, args) => {
@@ -31,4 +32,5 @@ module.exports.config = {
     name: 'rusling',
     aliases: [],
     description: 'Sets the rusling role for a user',
+    permission: config.rusling_role_id
 }

@@ -1,5 +1,6 @@
 const Tournament = require("../models/tournament");
 const fs = require("fs");
+const config = require('../config.json');
 
 module.exports.execute = async (client, message, args) => {
     const plannerRole = message.member.guild.roles.find(r => r.name === "Ruslan Planlægger");
@@ -43,4 +44,5 @@ module.exports.config = {
     name: 'update',
     aliases: [],
     description: 'Updates the tournament file',
+    permission: config.planner_role_id
 }

@@ -1,3 +1,6 @@
+const config = require('../config.json');
+
+
 module.exports.execute = async (client, message, args) => {
     channel.fetchMessages({ limit: 100 })
         .then(allMsg => {
@@ -14,4 +17,5 @@ module.exports.config = {
     name: 'purgebot',
     aliases: ['pb'],
     description: 'Removes all messages from the bot',
+    permission: config.admin_role_id
 }

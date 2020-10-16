@@ -1,5 +1,7 @@
 const Tournament = require("../models/tournament");
 const fs = require("fs");
+const config = require('../config.json');
+
 
 module.exports.execute = async (client, message, args) => {
     let data = fs.readFileSync('./tournaments.json');
@@ -26,4 +28,5 @@ module.exports.config = {
     name: 'showtournaments',
     aliases: ['tournaments'],
     description: 'Huh?',
+    permission: config.rusling_role_id
 }
