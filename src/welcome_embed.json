@@ -9,8 +9,8 @@
 	},
 	"fields": [
 		{
-			"name": "Kommandoer",
-			"value": "Start med `!deltag`"
+			"name": "Accepterer du reglerne?",
+			"value": "Start med `!deltag <dig@student.aau.dk>`"
 		},
 		{
 			"name": "\u200b",
