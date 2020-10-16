@@ -3,14 +3,14 @@
 	"author": {
 		"name": "Velkommen til virtuelt Ruslan"
 	},
-	"description": "**Regler**\n1. Opfør jeg pænt, det vil sige ingen racistiske bemærkninger eller andre stødende kommentare\n2. Ingen spam af billeder eller tekster på serveren",
+	"description": "Denne text channel skal helst læses af alle på serveren så i ikke risikere at blive smidt ud :D\nDer er nogle få regler der skal følges inde på selve discord serveren som skal følges som bliver listet om et øjeblik. Regler for under selve lannet kommer senere.\n\n**Regler**\n1. Opfør jeg pænt, det vil sige ingen racistiske bemærkninger eller andre stødende kommentare\n2. Ingen spam af billeder eller tekster på serveren",
 	"thumbnail": {
 		"url": "https://cdn.discordapp.com/attachments/749414285209370694/762710870669131816/unknown.png"
 	},
 	"fields": [
 		{
 			"name": "Kommandoer",
-			"value": "Start med `!help`"
+			"value": "Start med `!deltag`"
 		},
 		{
 			"name": "\u200b",
