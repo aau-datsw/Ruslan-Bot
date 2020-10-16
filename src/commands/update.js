@@ -14,6 +14,6 @@ module.exports.execute = async (client, message, args) => {
 module.exports.config = {
     name: 'update',
     aliases: ['pull'],
-    description: 'Marks you as a signed up attendant',
+    description: 'Updates the bot',
     permission: config.admin_role_id
 }
