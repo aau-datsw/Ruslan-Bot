@@ -10,7 +10,7 @@ module.exports.execute = async (client, message, args) => {
         return
     }
     let users = JSON.parse(fs.readFileSync('./signup.json').toString());
-    if (users.nosignin.indexOf(args[0].replace(/@student\.aau\.dk/g, '')) != -1) {
+    if (users.nosignin.indexOf(args[0].replace(/@student\.aau\.dk/g, '').replace(/[<>]/g, '')) != -1) {
         users.nosignin = users.nosignin.filter(usr => usr != args[0]);
         users.signin.push(args[0]);
         fs.writeFileSync('./signup.json', JSON.stringify(users, null, 4))
