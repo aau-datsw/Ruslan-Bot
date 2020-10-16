@@ -10,7 +10,8 @@
   "author": "Team ruslan",
   "dependencies": {
     "discord.js": "^12.3.1",
-    "dotenv": "^8.1.0"
+    "dotenv": "^8.1.0",
+    "request": "^2.88.2"
   },
   "devDependencies": {
     "nodemon": "^1.19.2"
