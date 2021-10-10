@@ -5,8 +5,8 @@
   "main": "bot.js",
   "scripts": {
     "start": "node src/bot.js",
-    "dev": "nodemon botV2/bot.js",
-    "config": "node botV2/deploy-commands.js"
+    "dev": "nodemon src/bot.js",
+    "config": "node src/deploy-commands.js"
   },
   "author": "Team ruslan",
   "dependencies": {
