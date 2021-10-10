@@ -3,7 +3,7 @@ require('dotenv').config();
 // Actions here
 const tutor = require('../actions/tutor.js');
 
-const config = require('./../config.json');
+const config = require('../../config.json');
 
 
 module.exports = async (client, message) => {

@@ -1,4 +1,4 @@
-const config = require('../config.json');
+const config = require('../../config.json');
 const newchat = require("../actions/newChat.js");
 
 module.exports = {
@@ -15,16 +15,12 @@ module.exports = {
             newState.member.send(`The tutors have been notified, and are on thier way to the support channel`);
             tutorChat.send(`${tutorRole} ${newState.member} needs help. Go to ${supportChannel}`);
         }
-    
-        if(!oldState.channel) return;
 
-        if(newState.channelId === config.Create_New_vc || oldState.channel.parentId === config.GameroomCategory){
+        if(newState.channelId === config.Create_New_vc || oldState.channel && oldState.channel.parentId === config.GameroomCategory){
             if (newState.channelId === config.Create_New_vc)
                 newchat.execute(client, newState);
-            
-            if (oldState.channel == null) return;
-    
-            if (oldState.channel.members.size === 0)
+
+            if (oldState.channel && oldState.channel.members.size === 0 && oldState.channel.parentId === config.GameroomCategory)
                 oldState.channel.delete();
         }
     }

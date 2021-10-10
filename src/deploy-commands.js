@@ -4,7 +4,7 @@ const path = require('path');
 const fs = require('fs');
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
-const { clientId, guildId} = require('./config.json');
+const { clientId, guildId} = require('../config.json');
 const fileNeedsUpdating = require('./fileNeedsUpdating.js')
 
 const commands = [];
@@ -12,10 +12,11 @@ const commands = [];
 const commandFiles = fs.readdirSync(path.resolve(__dirname, "./commands")).filter(file => file.endsWith('.js'));
 
 for (const file of commandFiles) {
-	const command = require(`${path.resolve(__dirname, "./commands")}/${file}`);
+	let command;
 	if(fileNeedsUpdating(file)) {
 		console.log(`${file} skal opdateres`);
 	} else {
+		command = require(`${path.resolve(__dirname, "./commands")}/${file}`);
 		commands.push(command.data.toJSON());
 	}
 }

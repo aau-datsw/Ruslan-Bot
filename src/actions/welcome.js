@@ -1,6 +1,6 @@
 
 const Discord = require('discord.js');
-const config = require('../config.json')
+const config = require('../../config.json')
 const welcome_embed = require('../welcome_embed.json')
 
 module.exports.execute = async (client) => {

@@ -1,4 +1,4 @@
-const config = require('../config.json');
+const config = require('../../config.json');
 const fs = require('fs');
 let http = require('https');
 

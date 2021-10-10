@@ -6,10 +6,6 @@ let filesThatNeedUpdating = [
     "makeTutor.js",
     "nickname.js",
     "pleb.js",
-    "purgeBot.js",
-    "purgeMe.js",
-    "quickpurge.js",
-    "setup.js",
     "update.js",
 ]
 
