@@ -1,37 +1,41 @@
 require('dotenv').config();
-const config = require('./config.json');
-const Discord = require("discord.js");
+const fileNeedsUpdating = require('./fileNeedsUpdating.js')
+
+const path = require('path');
 const fs = require('fs');
-const client = new Discord.Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'] });
+const { Client, Collection, Intents } = require('discord.js');
 
-fs.readdir("./events/", (err, files) => {
-	files.forEach(file => {
-		const eventHandler = require(`./events/${file}`);
-		const eventName = file.split(".")[0]; // File name = eventName
-		client.on(eventName, (...args) => eventHandler(client, ...args));
-	});
+const client = new Client({ 
+	intents: [
+		Intents.FLAGS.GUILDS,
+		Intents.FLAGS.GUILD_MESSAGES, 
+		Intents.FLAGS.GUILD_VOICE_STATES
+	]
 });
 
-client.commands = new Discord.Collection();
-client.aliases = new Discord.Collection();
-client.prefix = config.prefix;
+const eventFiles = fs.readdirSync(path.resolve(__dirname,'./events'))
+	.filter(file => file.endsWith('.js'));
 
-fs.readdir('./commands/', (err, files) => {
-	if (err) console.error(err);
-	const fileList = files
-		.filter((type) => !type.includes('.test.'))
-		.filter((fileName) => fileName.split('.').pop() === 'js');
-	if (fileList.length <= 0) {
-		return console.log('No commands have been loaded!');
+for (const file of eventFiles) {
+	const event = require(`${path.resolve(__dirname,'./events')}/${file}`);
+
+	if (event.once) client.once(event.name, (...args) => event.execute(...args));
+ 	else client.on(event.name, (...args) => event.execute(...args));
+	
+	console.log(file);
+}
+
+client.commands = new Collection();
+const commandFiles = fs.readdirSync(path.resolve(__dirname, "./commands"))
+	.filter(file => file.endsWith('.js'));
+
+for (const file of commandFiles) {
+	const command = require(`${path.resolve(__dirname, "./commands")}/${file}`);
+	if(fileNeedsUpdating(file)) {
+		console.log(`${file} skal opdateres`);
+	} else {
+		client.commands.set(command.data.name, command);
 	}
-	fileList.forEach((file) => {
-		const command = require(`./commands/${file}`);
-		client.commands.set(command.config.name, command);
-		command.config.aliases.forEach((alias) => {
-			client.aliases.set(alias, command.config.name);
-		});
-		console.log(`Registered ${command.config.name} as a command.`);
-	});
-});
+}
 
 client.login(process.env.BOT_TOKEN);
