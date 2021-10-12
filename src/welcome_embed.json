@@ -23,12 +23,12 @@
 		},
 		{
 			"name": "Stream?",
-			"value": "`!stream`",
+			"value": "`/stream`",
 			"inline": true
 		},
 		{
 			"name": "Brug for hjælp?",
-			"value": "`!support`",
+			"value": "`/support`",
 			"inline": true
 		},
 		{

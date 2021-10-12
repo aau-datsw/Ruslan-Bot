@@ -8,7 +8,7 @@ module.exports = {
         const client = oldState.member.client;
 
         const supportChannel = client.channels.cache.get(config.support_channel_vc);
-        const tutorRole = newState.guild.roles.cache.get(config.planner_role_id);
+        const tutorRole = newState.guild.roles.cache.get(config.tutor_role_id);
         const tutorChat = client.channels.cache.get(config.tutor_bump);
 
         if (newState.channelId === config.support_channel_vc && (newState.member.roles.highest.comparePositionTo(tutorRole) < 0)){
