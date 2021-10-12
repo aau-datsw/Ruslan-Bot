@@ -1,4 +1,5 @@
 .env
+test.js
 node_modules/
 config.json
 signup.json
