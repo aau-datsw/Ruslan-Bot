@@ -1,8 +1,6 @@
 let filesThatNeedUpdating = [
-    "attendants.js",
-    "draw.js",
-    "enter.js",
-    "update.js",
+    "attend.js",
+    "pull.js",
 ]
 
 function fileNeedsUpdating(file) {

@@ -32,7 +32,10 @@ module.exports = {
 
 
         if(memberRole < tutorRole.position){
-            tutorChat.send(`${tutorRole} ${interaction.member} vil gerne have tutor rolle!`);
+            const message = await tutorChat.send(`${tutorRole} ${interaction.member} vil gerne have tutor rolle!`);
+
+            message.react('👍').then(() => message.react('👎'));
+
             await interaction.reply({content: "Anmodning sendt!", ephemeral: true})
         } else await interaction.reply({content: "Anmodning afvist!", ephemeral: true})
     }

@@ -4,8 +4,10 @@ module.exports = {
     name: 'messageReactionAdd',
     once: false,
     async execute(messageReaction, user) {
+        if(user.bot) return;
         const tutorRole = await messageReaction.message.guild.roles.fetch(config.tutor_role_id);
         const rusling = await messageReaction.message.guild.roles.fetch(config.rusling_role_id);
+
         const member = await messageReaction.message.guild.members.fetch(user.id)
         const msg = messageReaction.message;
         const channelId = messageReaction.message.channelId;
@@ -19,9 +21,16 @@ module.exports = {
                         return;
                     }
                     member.roles.add(rusling);
-                    member.send("Du har nu adgang til RUSLAN2021 serveren!")
+                    member.send("Du har nu adgang til RUSLAN2021 serveren!");
                     break;
                 
+            }
+        }
+
+        if(channelId === config.RolesChannel){
+            switch(messageReaction.emoji.name){
+                //case '🇨': member.roles.add(); break;
+                //case '🇲': member.roles.add(); break;
             }
         }
 
@@ -29,6 +38,7 @@ module.exports = {
             const user = msg.mentions.members.first();
             if(messageReaction.emoji.name === "👍" && member.roles.highest.position > rusling.position) 
                 user.roles.add(tutorRole);
+            else messageReaction.message.delete();
         }
             
 

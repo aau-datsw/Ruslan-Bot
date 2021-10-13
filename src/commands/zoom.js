@@ -7,7 +7,7 @@ module.exports = {
         .setName("zoom")
         .setDescription("A big zoom call for all participants"),
     async execute (interaction){
-        await interaction.reply(`
+        await interaction.reply({content:`
         There breakout rooms for each cluster!
         just join the one you like :)
         
@@ -16,7 +16,7 @@ module.exports = {
         Join Zoom Meeting
         https://aaudk.zoom.us/j/63512282548
         Passcode: 678906
-        `);
+        `, ephemeral: true});
     }
 }
 

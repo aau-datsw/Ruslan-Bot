@@ -30,11 +30,6 @@
 			"name": "Brug for hjælp?",
 			"value": "`/support`",
 			"inline": true
-		},
-		{
-			"name": "Sæt et nickname?",
-			"value": "`!nickname <navn>`",
-			"inline": true
 		}
 	]
 }

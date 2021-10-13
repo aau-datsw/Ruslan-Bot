@@ -14,13 +14,12 @@ module.exports = {
 
             let commands = await interaction.guild.commands.fetch();
             commands.forEach(command => {
-                /*let role = interaction.member.guild.roles.cache.find(r => r.id === command.permission)
-                if (interaction.member.roles.highest.comparePositionTo(role) >= 0)*/
                     helpEmbed.addField(`/${command.name}`, command.description, true)
             });
 
             await interaction.reply({
-                embeds: [helpEmbed]
+                embeds: [helpEmbed],
+                ephemeral: true
             }).catch(console.log);
         }
 }

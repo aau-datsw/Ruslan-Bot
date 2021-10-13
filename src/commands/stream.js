@@ -7,7 +7,7 @@ module.exports = {
         .setName('stream')
         .setDescription('Provides a link to the stream'),
     async execute(interaction){
-        interaction.reply("Linket til streamen er https://www.twitch.tv/swruslan1337")
+        interaction.reply({content:"Linket til streamen er https://www.twitch.tv/swruslan1337", ephemeral: true})
     }
     
 }

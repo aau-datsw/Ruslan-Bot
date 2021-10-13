@@ -15,7 +15,8 @@ module.exports = {
                 { name: 'Minecraft 1.12 Enigmatica2 ModPack', value: 'e.mc.ruslan.dk'}
             )
         await interaction.reply({
-            embeds: [mcEmbed]
+            embeds: [mcEmbed],
+            ephemeral: true
         });
     }
 }

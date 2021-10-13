@@ -2,11 +2,20 @@ const config = require('../../config.json')
 const welcome_embed = require('../welcome_embed.json')
 
 module.exports.execute = async (client) => {
-    const channel = await client.channels.fetch(config.WelcomeChannel); 
+    const welcomeChannel = await client.channels.fetch(config.WelcomeChannel); 
+    const rolesChannel = await client.channels.fetch(config.RolesChannel);
 
     let fetchedMessages;
-    fetchedMessages = await channel.messages.fetch({limit: 100});
+    fetchedMessages = await welcomeChannel.messages.fetch({limit: 100});
+    fetchedMessages.forEach(msg => msg.delete());
+    fetchedMessages = await rolesChannel.messages.fetch({limit: 100});
     fetchedMessages.forEach(msg => msg.delete());
     
-    channel.send({embeds: [welcome_embed]});
+    const welcomeMessage = await welcomeChannel.send({embeds: [welcome_embed]});
+    const rolesMessage = await rolesChannel.send({content: "roles"});
+    welcomeMessage.react('👍');
+    rolesMessage.react('🇨');
+    rolesMessage.react('🇲');
+
+
 }
