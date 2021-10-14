@@ -22,7 +22,7 @@ module.exports = {
         catch(e){console.log}
 
         if(interaction.member.roles.highest.comparePositionTo(config.giveaway_role_id) < 0){
-            await interaction.reply({content:'You do not have to permission to use this command!', ephemeral: true})
+            await interaction.reply({content:'Du har ikke adgang til denne kommando', ephemeral: true})
             return;
         }
 
@@ -34,7 +34,6 @@ module.exports = {
         }
 
         const winnerIndex = Math.floor(Math.random() * draw.participants.length);
-        for(let i = 0; i < 10; i++) console.log(Math.floor(Math.random() * draw.participants.length))
         winner = draw.participants[winnerIndex];
 
         const member = await interaction.guild.members.fetch(winner);
@@ -42,6 +41,6 @@ module.exports = {
         draw.winnerChosen = true;
         fs.writeFileSync(path.resolve(__dirname, '../draws.json'), JSON.stringify(json, null, 4));
 
-        await interaction.reply({content: `${member} have won the ${draw.name} giveaway!`})
+        await interaction.reply({content: `${member} har vundet ${draw.name} giveaway!`})
     }
 }

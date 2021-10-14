@@ -1,17 +1,29 @@
 {
-    "prefix": "!",
-    
-    
-    "rules_channel": "0000",
-    "support_channel_vc": "0000",
-    "tutor_bump": "0000",
-    "Create_New_vc": "0000",
-    "GameroomCategory": "0000",
-    "WelcomeChannel": "0000",
+    "clientId": "",
+    "guildId": "",
+ 
 
-    
-    "admin_role_id": "0000",
-    "planner_role_id": "0000",
-    "rusling_role_id": "0000"
-    
+    "Create_New_vc": "",
+    "support_channel_vc": "",
+
+ 
+    "WelcomeChannel": "",
+    "RolesChannel":"",
+    "tutor_bump": "",
+
+
+    "csgoChannel": "",
+    "minecraftChannel": "",
+
+
+    "GameroomCategory": "",
+ 
+
+    "admin_role_id": "",
+    "giveaway_role_id": "",
+    "tutor_role_id": "",
+    "rusling_role_id": "",
+
+    "csgo_role_id": "",
+    "minecraft_role_id": ""
 }

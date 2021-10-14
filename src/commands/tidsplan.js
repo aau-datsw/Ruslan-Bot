@@ -1,13 +1,10 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-//const config = require('../config.json');
-
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('tidsplan')
         .setDescription('Gets information about the schedule'),
     async execute(interaction){
-        //message.reply('Tidsplanen er som følgende:')
 
         interaction.reply({content: '__**Tidsplan til RusLan 2020**__\n\n**Fredag d. 16/10**\n\n18:00 - Introduktion til RusLAN \
         \n18:30 - Sponsor-talks\n19:00 - League of Legends 5v5\n22:00 - Scribbl.io\n\n**Lørdag d. 17/10** \
@@ -15,10 +12,3 @@ module.exports = {
         \n\n**Søndag d. 18/10**\n\n12:00 - Golf With Friends', ephemeral: true})
     }
 }
-
-/*module.exports.config = {
-    name: 'tidsplan',
-    aliases: ['schedule'],
-    description: 'Gets information about the schedule',
-    permission: config.rusling_role_id
-}*/

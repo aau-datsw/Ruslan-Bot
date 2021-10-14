@@ -15,12 +15,3 @@ module.exports =  {
             else await interaction.reply({content: `Go to the voice channel <#${config.support_channel_vc}> to get live support`, ephemeral: true}); 
         }
 }
-
-
-
-/*module.exports.config = {
-    name: 'support',
-    aliases: [],
-    description: 'Gives instructions on what to do if you need help',
-    permission: config.rusling_role_id
-}*/

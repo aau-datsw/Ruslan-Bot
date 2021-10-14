@@ -1,6 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const Discord = require('discord.js');
-//const config = require('../config.json');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -14,6 +13,7 @@ module.exports = {
 
             let commands = await interaction.guild.commands.fetch();
             commands.forEach(command => {
+                if(!command.name === "pull")
                     helpEmbed.addField(`/${command.name}`, command.description, true)
             });
 
@@ -23,10 +23,3 @@ module.exports = {
             }).catch(console.log);
         }
 }
-
-/*module.exports.config = {
-    name: 'help',
-    aliases: ['h'],
-    description: 'Provides a list of commands for the user to run',
-    permission: config.rusling_role_id
-}*/

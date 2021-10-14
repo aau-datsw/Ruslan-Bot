@@ -1,26 +1,22 @@
 {
     "draws": [
         {
-            "name": "test",
-            "description": "test",
+            "name": "myName",
+            "description": "myDescription",
+            "participants": [],
+            "winnerChosen": false
+        },
+        {
+            "name": "PROSA",
+            "description": "Her trækker vi lod om tre højtalere....",
             "participants": [
                 "152475233423458304"
             ],
             "winnerChosen": true
         },
         {
-            "name": "PROSA",
-            "description": "Her trækker vi lod om tre højtalere....",
-            "participants": [
-                "897205692614725633",
-                "152475233423458304",
-                "235252345214"
-            ],
-            "winnerChosen": true
-        },
-        {
-            "name": "nl",
-            "description": "test \n for \n newlines",
+            "name": "GIVEAWAY",
+            "description": "VILD GIVEAWAY!! \n VIND 5 KRONER",
             "participants": [],
             "winnerChosen": false
         }

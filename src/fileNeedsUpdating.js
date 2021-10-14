@@ -1,5 +1,5 @@
 let filesThatNeedUpdating = [
-
+    "some.js"
 ]
 
 function fileNeedsUpdating(file) {

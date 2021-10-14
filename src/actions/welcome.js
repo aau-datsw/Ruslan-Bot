@@ -1,21 +1,29 @@
 const config = require('../../config.json')
-const welcome_embed = require('../welcome_embed.json')
+const welcomeEmbed = require('../embeds/welcome.json')
+const rolesEmbed = require('../embeds/roles.json');
 
 module.exports.execute = async (client) => {
-    const welcomeChannel = await client.channels.fetch(config.WelcomeChannel); 
-    const rolesChannel = await client.channels.fetch(config.RolesChannel);
+    try{
+        const ch = {
+            welcomeChannel: await client.channels.fetch(config.WelcomeChannel),
+            rolesChannel: await client.channels.fetch(config.RolesChannel),
+            csgoChannel: await client.channels.fetch(config.csgoChannel),
+            minecraftChannel: await client.channels.fetch(config.minecraftChannel)
+        };
+        
+        Object.values(ch).forEach(fetchMessages);
+        
+        const welcomeMessage = await ch.welcomeChannel.send({embeds: [welcomeEmbed]});
+        const rolesMessage = await ch.rolesChannel.send({embeds: [rolesEmbed]});
+        welcomeMessage.react('👍');
+        rolesMessage.react('🇨');
+        rolesMessage.react('🇲');
+    }catch(e){console.log}
+}
 
+
+async function fetchMessages(channel){
     let fetchedMessages;
-    fetchedMessages = await welcomeChannel.messages.fetch({limit: 100});
+    fetchedMessages = await channel.messages.fetch({limit: 100});
     fetchedMessages.forEach(msg => msg.delete());
-    fetchedMessages = await rolesChannel.messages.fetch({limit: 100});
-    fetchedMessages.forEach(msg => msg.delete());
-    
-    const welcomeMessage = await welcomeChannel.send({embeds: [welcome_embed]});
-    const rolesMessage = await rolesChannel.send({content: "roles"});
-    welcomeMessage.react('👍');
-    rolesMessage.react('🇨');
-    rolesMessage.react('🇲');
-
-
 }

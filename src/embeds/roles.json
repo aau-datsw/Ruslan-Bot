@@ -1,0 +1,13 @@
+{
+	"color": "0x0099ff",
+	"author": {
+		"name": "Game channel roller"
+	},
+	"description": "Her kan du reagere med en emoji og få tildelt\n den rolle, som emojien representere:)",
+	"fields": [
+		{
+			"name": "Game roles",
+			"value": ":regional_indicator_c: for <@&897228913552543744>\n:regional_indicator_m: for <@&897228952932868096>"
+		}
+	]
+}

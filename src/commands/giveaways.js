@@ -3,7 +3,6 @@ const {MessageEmbed} = require('discord.js');
 const path = require('path');
 const fs = require('fs');
 
-
 module.exports = {
     data: new SlashCommandBuilder()
     .setName('giveaways')
@@ -19,10 +18,13 @@ module.exports = {
         }
         const msgEmbed = new MessageEmbed();
         msgEmbed.setTitle('Lodtrækninger');
-        json.draws.forEach(element => {
-            if(element.winnerChosen) return;
-            msgEmbed.addField(element.name, `${element.description}\n\n${element.participants.length} personer deltager!`);
+        json.draws.forEach(draw => {
+            if(draw.winnerChosen){
+                msgEmbed.addField(draw.name, `${draw.description}\n\n Vinderen er fundet!`);
+                return;
+            } 
+            msgEmbed.addField(draw.name, `${draw.description}\n\n${draw.participants.length} personer deltager!`);
         });
-        await interaction.reply({embeds:[msgEmbed], ephemeral: true})
+        await interaction.reply({embeds:[msgEmbed], ephemeral: true});
     }
 }

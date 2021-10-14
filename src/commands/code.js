@@ -3,7 +3,7 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('code')
-        .setDescription('If you just want to code this lan'),
+        .setDescription('Hvis du bare gerne vil kode'),
     async execute(interaction){
             await interaction.reply({content:`
 Du vil bare gerne kode? Fedt!:

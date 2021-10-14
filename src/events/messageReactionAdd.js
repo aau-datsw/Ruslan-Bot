@@ -7,6 +7,8 @@ module.exports = {
         if(user.bot) return;
         const tutorRole = await messageReaction.message.guild.roles.fetch(config.tutor_role_id);
         const rusling = await messageReaction.message.guild.roles.fetch(config.rusling_role_id);
+        const csgo = await messageReaction.message.guild.roles.fetch(config.csgo_role_id);
+        const minecraft = await messageReaction.message.guild.roles.fetch(config.minecraft_role_id);
 
         const member = await messageReaction.message.guild.members.fetch(user.id)
         const msg = messageReaction.message;
@@ -29,8 +31,8 @@ module.exports = {
 
         if(channelId === config.RolesChannel){
             switch(messageReaction.emoji.name){
-                //case '🇨': member.roles.add(); break;
-                //case '🇲': member.roles.add(); break;
+                case '🇨': member.roles.add(csgo); break;
+                case '🇲': member.roles.add(minecraft); break;
             }
         }
 

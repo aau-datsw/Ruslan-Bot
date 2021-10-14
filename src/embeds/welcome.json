@@ -10,12 +10,17 @@
 	"fields": [
 		{
 			"name": "Accepterer du reglerne?",
-			"value": "Start med `!deltag <dig@student.aau.dk>`"
+			"value": "Start med at ændre dit nickname og så like denne besked"
 		},
 		{
 			"name": "Nåede du ikke at skrive dig op?",
 			"value": "Ping <@95575117463031808> eller <@149818848365772800> for at blive tilmeldt."
 		},
+		{
+			"name": "Vil du have adgang til relevante game chats og tournaments?",
+			"value": "Gå til roles under kategorien RUSLING"
+		},
+
 		{
 			"name": "\u200b",
 			"value": "\u200b",
