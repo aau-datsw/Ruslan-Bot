@@ -20,6 +20,7 @@ module.exports = {
         const msgEmbed = new MessageEmbed();
         msgEmbed.setTitle('Lodtrækninger');
         json.draws.forEach(element => {
+            if(element.winnerChosen) return;
             msgEmbed.addField(element.name, `${element.description}\n\n${element.participants.length} personer deltager!`);
         });
         await interaction.reply({embeds:[msgEmbed], ephemeral: true})

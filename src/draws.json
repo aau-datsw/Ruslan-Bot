@@ -3,23 +3,26 @@
         {
             "name": "test",
             "description": "test",
-            "participants": []
+            "participants": [
+                "152475233423458304"
+            ],
+            "winnerChosen": true
         },
         {
             "name": "PROSA",
             "description": "Her trækker vi lod om tre højtalere....",
             "participants": [
-                {
-                    "id": "149818848365772800",
-                    "usr": "Zaphoo",
-                    "info": "test"
-                }
-            ]
+                "897205692614725633",
+                "152475233423458304",
+                "235252345214"
+            ],
+            "winnerChosen": true
         },
         {
             "name": "nl",
             "description": "test \n for \n newlines",
-            "participants": []
+            "participants": [],
+            "winnerChosen": false
         }
     ]
 }

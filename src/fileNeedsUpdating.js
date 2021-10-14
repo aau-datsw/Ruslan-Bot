@@ -1,6 +1,5 @@
 let filesThatNeedUpdating = [
-    "attend.js",
-    "pull.js",
+
 ]
 
 function fileNeedsUpdating(file) {
