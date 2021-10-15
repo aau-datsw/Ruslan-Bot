@@ -11,15 +11,15 @@ module.exports = {
                 .setTitle("**Commands**")
                 .setDescription(`These are the different commands to use for **${interaction.member.roles.highest.name}**:`);
 
-            let commands = await interaction.guild.commands.fetch();
+            let commands = await interaction.guild.commands.fetch().catch(console.error);
             commands.forEach(command => {
-                if(!command.name === "pull")
-                    helpEmbed.addField(`/${command.name}`, command.description, true)
+                if(command.name === "pull") return;
+                helpEmbed.addField(`/${command.name}`, command.description, true)
             });
 
             await interaction.reply({
                 embeds: [helpEmbed],
                 ephemeral: true
-            }).catch(console.log);
+            }).catch(console.error);
         }
 }

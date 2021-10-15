@@ -18,7 +18,7 @@ module.exports.execute = async (client) => {
         welcomeMessage.react('👍');
         rolesMessage.react('🇨');
         rolesMessage.react('🇲');
-    }catch(e){console.log}
+    }catch(e){console.error}
 }
 
 

@@ -8,5 +8,5 @@ module.exports.execute = async (client, newState) => {
         newState.member.voice.setChannel(result.id)
         console.log("A new channel was created!");
         });
-    }catch(e){console.log}
+    }catch(e){console.error}
 }

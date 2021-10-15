@@ -36,7 +36,7 @@ module.exports = {
         const winnerIndex = Math.floor(Math.random() * draw.participants.length);
         winner = draw.participants[winnerIndex];
 
-        const member = await interaction.guild.members.fetch(winner);
+        const member = await interaction.guild.members.fetch(winner).catch(console.error);
 
         draw.winnerChosen = true;
         fs.writeFileSync(path.resolve(__dirname, '../draws.json'), JSON.stringify(json, null, 4));

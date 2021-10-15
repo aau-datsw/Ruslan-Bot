@@ -5,7 +5,7 @@ module.exports ={
         .setName('brætspil')
         .setDescription('brætspil ideer'),
     async execute(interaction){
-        interaction.reply({content:`
+        await interaction.reply({content:`
 **Ideer til online brætspil!**
 
 Skribbl er et tegn og gæt spil som giver invitation til en masse sjov og gode grin!

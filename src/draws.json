@@ -9,10 +9,8 @@
         {
             "name": "PROSA",
             "description": "Her trækker vi lod om tre højtalere....",
-            "participants": [
-                "152475233423458304"
-            ],
-            "winnerChosen": true
+            "participants": [],
+            "winnerChosen": false
         },
         {
             "name": "GIVEAWAY",

@@ -6,7 +6,7 @@ module.exports = {
         .setName('plstutor')
         .setDescription('asks permission to get tutor role'),
     async execute(interaction){
-        const tutorRole = await interaction.guild.roles.fetch(config.tutor_role_id);
+        const tutorRole = await interaction.guild.roles.fetch(config.tutor_role_id).catch(console.error);
         const tutorChat = interaction.guild.channels.cache.get(config.tutor_bump);
         const memberRole = interaction.member.roles.highest.position;
 
