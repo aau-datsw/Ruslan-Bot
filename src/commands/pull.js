@@ -27,9 +27,12 @@ module.exports = {
         }
 
         const draw = json.draws.find(draw => draw.name.toLowerCase() === giveaway.toLowerCase());
-
+        if(draw.participants.length === 0){
+            await interaction.reply({content:'Der er ingen deltagere i denne giveaway!', ephemeral: true});
+            return;
+        }
         if(!draw){
-            await interaction.reply({content:'no giveaway with that name', ephemeral: true});
+            await interaction.reply({content:'ingen giveaway med det navn', ephemeral: true});
             return;
         }
 
