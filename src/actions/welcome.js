@@ -6,9 +6,7 @@ module.exports.execute = async (client) => {
     try{
         const ch = {
             welcomeChannel: await client.channels.fetch(config.WelcomeChannel),
-            rolesChannel: await client.channels.fetch(config.RolesChannel),
-            csgoChannel: await client.channels.fetch(config.csgoChannel),
-            minecraftChannel: await client.channels.fetch(config.minecraftChannel)
+            rolesChannel: await client.channels.fetch(config.RolesChannel)
         };
         
         Object.values(ch).forEach(fetchMessages);
@@ -18,9 +16,13 @@ module.exports.execute = async (client) => {
         welcomeMessage.react('👍');
         rolesMessage.react('🇨');
         rolesMessage.react('🇲');
+        rolesMessage.react('🇷');
+        rolesMessage.react('🇱');
+        rolesMessage.react('🇬');
+        rolesMessage.react('🇸');
+        rolesMessage.react('🥊');
     }catch(e){console.error}
 }
-
 
 async function fetchMessages(channel){
     let fetchedMessages;

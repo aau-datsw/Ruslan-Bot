@@ -14,7 +14,11 @@
 
     "csgoChannel": "",
     "minecraftChannel": "",
-
+    "rocketChannel": "",
+    "lolChannel": "",
+    "golfChannel": "",
+    "scribbleChannel": "",
+    "smashChannel": "",
 
     "GameroomCategory": "",
  
@@ -25,5 +29,11 @@
     "rusling_role_id": "",
 
     "csgo_role_id": "",
-    "minecraft_role_id": ""
+    "minecraft_role_id": "",
+    "rocket_role_id": "",
+    "lol_role_id": "",
+    "golf_role_id": "",
+    "scribble_role_id": "",
+    "smash_role_id": ""
+
 }
