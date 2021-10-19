@@ -20,13 +20,13 @@ module.exports = {
 
             if(channelId === config.RolesChannel){
                 switch(messageReaction.emoji.name){
-                    case '🇨': member.roles.remove(csgo); break;
-                    case '🇲': member.roles.remove(minecraft); break;
-                    case '🇷': member.roles.remove(rocket); break;
-                    case '🇱': member.roles.remove(lol); break;
-                    case '🇬': member.roles.remove(golf); break;
-                    case '🇸': member.roles.remove(scribble); break;
-                    case '🥊': member.roles.remove(smash); break;
+                    case 'csgo': member.roles.remove(csgo); break;
+                    case 'minecraft': member.roles.remove(minecraft); break;
+                    case 'rocket_league': member.roles.remove(rocket); break;
+                    case 'league': member.roles.remove(lol); break;
+                    case 'golf_with_friends': member.roles.remove(golf); break;
+                    case 'scribble': member.roles.remove(scribble); break;
+                    case 'smash': member.roles.remove(smash); break;
                 }
             }
         }catch(e){console.error}
