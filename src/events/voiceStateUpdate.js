@@ -16,11 +16,11 @@ module.exports = {
             tutorChat.send(`${tutorRole} ${newState.member} needs help. Go to ${supportChannel}`);
         }
 
-        if(newState.channelId === config.Create_New_vc || oldState.channel && oldState.channel.parentId === config.GameroomCategory){
+        if(newState.channelId === config.Create_New_vc || oldState.channel){
             if (newState.channelId === config.Create_New_vc)
                 newchat.execute(client, newState);
 
-            if (oldState.channel && oldState.channel.members.size === 0 && oldState.channel.parentId === config.GameroomCategory)
+            if (oldState.channel && oldState.channel.members.size === 0 && oldState.channel.name.includes("s chat"))
                 oldState.channel.delete();
         }
     }
