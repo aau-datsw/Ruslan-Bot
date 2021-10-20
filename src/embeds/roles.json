@@ -1,0 +1,14 @@
+{
+	"color": "0x0099ff",
+	"author": {
+		"name": "Game channel roller"
+	},
+	"description": "Her kan du reagere med en emoji og få tildelt\n den rolle, som emojien representere:)",
+	"fields": [
+		{
+			"name": "Game roles",
+			"value": 
+			"<:csgo:900113749480988682> for <@&899721057496367174>\n<:minecraft:900114953585963061>  for <@&899725201565179925>\n<:rocket_league:900112982787387482> for <@&899725535880572949>\n<:league:900113425726857216> for <@&899725941025144893>\n<:golf_with_friends:900113907144851456> for <@&899726405267501076>\n<:scribble:900114465574498334> for <@&899726821283725402>\n<:smash:900114645560479777>  for <@&899727256702844979>\n"
+		}
+	]
+}

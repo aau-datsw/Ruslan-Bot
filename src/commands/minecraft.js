@@ -1,20 +1,21 @@
-const Discord = require('discord.js');
-const config = require('../config.json');
+const { MessageEmbed } = require('discord.js');
+const { SlashCommandBuilder } = require('@discordjs/builders');
 
-module.exports.execute = async (client, message, args) => {
-    const mcEmbed = new Discord.MessageEmbed()
-        .setColor("#5175BC")
-        .setTitle('Minecraft')
-        .addFields(
-            { name: 'Minecraft 1.16.3 Vanilla/Minigames', value: 'v.mc.ruslan.dk'},
-            { name: 'Minecraft 1.12 Enigmatica2 ModPack', value: 'e.mc.ruslan.dk'}
-        )
-    message.reply(mcEmbed)
-}
-
-module.exports.config = {
-    name: 'minecraft',
-    aliases: ['mc'],
-    description: 'Provides information about Minecraft',
-    permission: config.rusling_role_id
+module.exports = {
+    data: new SlashCommandBuilder()
+        .setName('minecraft')
+        .setDescription('Minecraft information'),
+    async execute (interaction) { 
+        const mcEmbed = new MessageEmbed()
+            .setColor("#07c900")
+            .setTitle('Minecraft')
+            .addFields(
+                { name: 'Minecraft 1.16.3 Vanilla/Minigames', value: 'v.mc.ruslan.dk'},
+                { name: 'Minecraft 1.12 Enigmatica2 ModPack', value: 'e.mc.ruslan.dk'}
+            )
+        await interaction.reply({
+            embeds: [mcEmbed],
+            ephemeral: true
+        });
+    }
 }

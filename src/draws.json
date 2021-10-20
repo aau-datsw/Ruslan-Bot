@@ -1,25 +1,22 @@
 {
     "draws": [
         {
-            "name": "test",
-            "description": "test",
-            "participants": []
+            "name": "myName",
+            "description": "myDescription",
+            "participants": [],
+            "winnerChosen": false
         },
         {
             "name": "PROSA",
             "description": "Her trækker vi lod om tre højtalere....",
-            "participants": [
-                {
-                    "id": "149818848365772800",
-                    "usr": "Zaphoo",
-                    "info": "test"
-                }
-            ]
+            "participants": [],
+            "winnerChosen": false
         },
         {
-            "name": "nl",
-            "description": "test \n for \n newlines",
-            "participants": []
+            "name": "GIVEAWAY",
+            "description": "VILD GIVEAWAY!! \n VIND 5 KRONER",
+            "participants": [],
+            "winnerChosen": false
         }
     ]
 }

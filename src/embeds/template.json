@@ -1,0 +1,13 @@
+{
+	"color": "COLOR",
+	"author": {
+		"name": "NAME"
+	},
+	"description": "DESCRIPTION",
+	"fields": [
+		{
+			"name": "NAME",
+			"value": "VALUE"
+		}
+	]
+}

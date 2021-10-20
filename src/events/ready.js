@@ -1,11 +1,11 @@
-require('dotenv').config();
-const Tournament = require("../models/tournament");
-const welcome = require("../actions/welcome.js");
+const welcome = require('../actions/welcome.js');
 
+module.exports = {
+	name: 'ready',
+	once: true,
+	execute(client) {
+		console.log(`Ready! Logged in as ${client.user.tag}`);
 
-const fs = require("fs");
-
-module.exports = (client) => {
-    console.log('The RUSLAN bot is ready!');
-    welcome.execute(client);
-}
+		welcome.execute(client);
+	},
+};

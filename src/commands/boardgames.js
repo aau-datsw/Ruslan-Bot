@@ -1,7 +1,12 @@
-const config = require('../config.json');
+const { SlashCommandBuilder } = require('@discordjs/builders');
 
-module.exports.execute = async (client, message, args) => {
-    message.channel.send(`**Ideer til online brætspil!**
+module.exports ={
+    data: new SlashCommandBuilder()
+        .setName('brætspil')
+        .setDescription('brætspil ideer'),
+    async execute(interaction){
+        await interaction.reply({content:`
+**Ideer til online brætspil!**
 
 Skribbl er et tegn og gæt spil som giver invitation til en masse sjov og gode grin!
 <https://skribbl.io/>
@@ -39,12 +44,6 @@ Secret hitler er et social deduction game som handler om at få stoppet den hemm
 **Kræver log in**
 Warzone er den online version af Risk, hvor det handler om at erobre verden ved at overtage kontrollen over alle områder! 
 <https://www.warzone.com/>
-*Op til 6 spillere*`)
-}
-
-module.exports.config = {
-    name: 'brætspil',
-    aliases: ['boardgames', 'bg'],
-    description: 'Removes all messages from the bot',
-    permission: config.rusling_role_id
+*Op til 6 spillere*`, ephemeral: true});
+    }
 }

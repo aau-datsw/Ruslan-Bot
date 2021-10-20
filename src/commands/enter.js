@@ -1,48 +1,52 @@
-const config = require('../config.json');
-const fs = require('fs')
+const { SlashCommandBuilder } = require("@discordjs/builders");
+const path = require('path');
+const fs = require('fs');
+const config = require('../../config.json')
 
-module.exports.execute = async (client, message, args) => {
-    // !draw new "navn" "beskrivelse"
-    // !enter "navn" "information"
-    await message.delete();
+module.exports = {
+    data: new SlashCommandBuilder()
+        .setName('enter')
+        .setDescription('deltag i giveaway')
+        .addStringOption(option =>{
+            return option
+                .setName('giveaway')
+                .setDescription('den giveaway du vil deltage i')
+                .setRequired(true)
+        }),
+    async execute(interaction){
+        try{
+            const giveawayChannel = interaction.client.channels.cache.get(config.giveawayChannel);
+            const giveaway = interaction.options.getString('giveaway');
+            let json;
 
-    let json;
-    if (args.length < 2) {
-        message.reply('Du skal som minimum vælge en lodtrækning og give et svar.\nSe `!lodtrækninger`')
+            json = JSON.parse(fs.readFileSync(path.resolve(__dirname,'../draws.json')));
+
+            if(interaction.member.roles.highest.comparePositionTo(config.rusling_role_id) > 0){
+                await interaction.reply({content:'Du skal være rusling for at kunne deltage!', ephemeral: true});
+                return;
+            }
+
+            const draw = json.draws.find(draw => draw.name.toLowerCase() === giveaway.toLowerCase());
+
+            if(!draw){
+                await interaction.reply({content:'Ingen giveaway med dette navn, prøv tjek /giveaways', ephemeral: true});
+                return;
+            }
+
+            if(draw.winnerChosen){
+                await interaction.reply({content:`Vinderen er fundet, tjek ${giveawayChannel} for at se om det var dig!`, ephemeral: true});
+                return;
+            }
+
+            if(draw.participants.some(id => id === interaction.member.id)){
+                await interaction.reply({content: "Du er allerede tilmeldt denne giveaway", ephemeral: true});
+                return;
+            }
+
+            draw.participants.push(interaction.member.id);
+            fs.writeFileSync(path.resolve(__dirname, '../draws.json'), JSON.stringify(json, null, 4));
+
+            await interaction.reply({content:`du deltager nu i ${draw.name} giveaway!\n Vinderen vil blive annonceret i ${giveawayChannel}`, ephemeral: true});
+        } catch(e){console.error}
     }
-    try {
-        json = JSON.parse(fs.readFileSync('./draws.json'));
-    } catch {
-        message.reply('Der er desværre ikke nogen aktive lodtrækninger lige nu...');
-        return;
-    }
-    if (message.member.roles.highest.comparePositionTo(config.rusling_role_id) > 0) {
-        message.reply('Du skal være rusling for at deltage!');
-        return;
-    }
-    if (json.draws.some(dr => dr.name.toLowerCase() === args[0].toLowerCase())) {
-        // En lodtrækning eksisterer
-        let draw = json.draws.find(dr => dr.name.toLowerCase() === args[0].toLowerCase())
-
-        if (draw.participants.some(part => part.id == message.member.id)) {
-            message.reply('\*Tsk tsk\* Ikke snyde med turneringerne :eyes:')
-            return;
-        }
-
-        draw.participants.push({
-            id: message.member.id,
-            usr: message.member.displayName,
-            info: args.splice(1).join(' ')
-        })
-
-        fs.writeFileSync('./draws.json', JSON.stringify(json, null, 4));
-        message.reply(`:tada: Du er nu med i lodtrækningen '${args[0]}'! :tada:`).then(msg => msg.delete({timeout: 10000}))
-    }
-}
-
-module.exports.config = {
-    name: 'enter',
-    aliases: ['vind', 'træk'],
-    description: 'Enters you into a draw',
-    permission: config.rusling_role_id
 }

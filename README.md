@@ -10,6 +10,10 @@ This is an example of how to list things you need to use the software and how to
 ```sh
 npm install npm@latest -g
 ```
+* node
+```sh
+nvm use 16.6.0
+```
 
 ### Installation
 
@@ -25,7 +29,13 @@ npm install
 ```
 BOT_TOKEN=your_discord_bot_api
 ```
-4. run the start script with (which is just a wrapper for npm run bot.js... for now)
+
+4. update command listings
+```
+npm run config
+```
+
+5. run the start script with (which is just a wrapper for npm run bot.js... for now)
 ```
 npm run start
 ```
