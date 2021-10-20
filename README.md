@@ -1,6 +1,8 @@
 <!-- GETTING STARTED -->
 ## Getting Started
 
+This bot is built with https://discord.js.org/#/
+
 To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
